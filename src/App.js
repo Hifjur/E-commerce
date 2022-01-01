@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import './App.css';
 import Header from './components/Shared/Header';
+import Home from './components/Home/Home/Home';
 
 function App() {
   return (
@@ -12,8 +13,8 @@ function App() {
       <BrowserRouter>
           <Header></Header>
         <Routes>
-          {/* <Route path="/" element={<App />} />
-            <Route index element={<Home />} /> */}
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
            
         </Routes>
       </BrowserRouter>,
