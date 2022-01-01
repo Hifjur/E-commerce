@@ -1,0 +1,33 @@
+.header_from {
+    margin-left: 300px;
+}
+
+.header_control{
+    width: 400px;
+}
+
+.fa-etsy {
+    font-size: 50px;
+    color: rgb(0, 0, 0) !important;
+    
+}
+
+.fa-layer-group {
+    font-size: 20px;
+    color: rgb(0, 0, 0) !important;
+}
+
+.fa-heart {
+    font-size: 20px;
+    color: rgb(0, 0, 0) !important;
+}
+
+.fa-user {
+    font-size: 20px;
+    color: rgb(0, 0, 0) !important;
+}
+
+.fa-shopping-cart {
+    font-size: 20px;
+    color: rgb(0, 0, 0) !important;
+}
