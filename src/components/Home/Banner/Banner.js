@@ -1,7 +1,10 @@
 import React from 'react';
 import { Carousel } from 'react-carousel-minimal';
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> shared
 
 const Banner = () => {
     const data = [
@@ -14,7 +17,11 @@ const Banner = () => {
         },
         {
             image:
+<<<<<<< HEAD
                 "https://cdn.britannica.com/s:800x450,c:crop/35/204435-138-2F2B745A/Time-lapse-hyper-lapse-Isle-Skye-Scotland.jpg",
+=======
+                "https://i.ibb.co/7bXypsB/s-1.png",
+>>>>>>> shared
             caption: "<div>San Francisco</div>",
         },
         {
@@ -57,7 +64,11 @@ const Banner = () => {
     const captionStyle = {
         fontSize: "2em",
         fontWeight: "bold",
+<<<<<<< HEAD
        
+=======
+
+>>>>>>> shared
     };
     const slideNumberStyle = {
         fontSize: "20px",
@@ -75,7 +86,11 @@ const Banner = () => {
                         data={data}
                         time={2000}
                         width="100%"
+<<<<<<< HEAD
                         height="400px"
+=======
+                        height="500px"
+>>>>>>> shared
                         captionStyle={captionStyle}
                         radius="10px"
                         slideNumber={true}
@@ -94,7 +109,11 @@ const Banner = () => {
                             textAlign: "center",
                             maxWidth: "1250px",
                             margin: "40px auto",
+<<<<<<< HEAD
                             
+=======
+
+>>>>>>> shared
                         }}
                     />
                 </div>
