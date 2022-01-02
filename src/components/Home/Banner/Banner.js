@@ -82,10 +82,7 @@ const Banner = () => {
                         dots={true}
                         pauseIconColor="white"
                         pauseIconSize="40px"
-                        slideBackgroundColor="darkgrey"
                         slideImageFit="cover"
-                        thumbnails={true}
-                        thumbnailWidth="100px"
                         showNavBtn={true}
                         style={{
                             textAlign: "center",
