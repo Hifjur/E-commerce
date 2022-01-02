@@ -47,7 +47,7 @@ const Banner = () => {
         },
         {
             image:
-                "https://i.ibb.co/Lgw6hjg/s-6.png",
+                "https://i.ibb.co/DRHJ11r/s-8.png",
             caption: "<div>San Francisco</div>",
         },
     ];
