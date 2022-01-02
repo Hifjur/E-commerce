@@ -11,8 +11,9 @@ import {
   updateProfile,
   getIdToken,
 } from "firebase/auth";
-import initializeFirebase from "../Pages/Login/Firebase/Firebase.init";
+
 import { useNavigate } from "react-router-dom";
+import initializeFirebase from "../Firebase/Firebase.init";
 
 initializeFirebase();
 const useFirebase = () => {
