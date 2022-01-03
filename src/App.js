@@ -11,6 +11,7 @@ import Checkout from "./Checkoutpage/Checkout";
 import Footer from "./components/Shared/Footer/Footer";
 import NotFound from "./components/Shared/NotFound/NotFound";
 import Products from "./components/Home/Products/Products/Products";
+import Blog from "./components/Home/Blogs/Blog";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/products" element={<Blog />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/singlepage" element={<Singlepage />} />
