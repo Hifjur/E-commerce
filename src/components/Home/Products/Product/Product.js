@@ -42,7 +42,7 @@ const Product = ({ product }) => {
                                 <div className="col-md-6 col-sm-12 col-lg-6 mt-3">
                                     <h5 className="service_fee">
                                         Course fees:{" "}
-                                        <span style={{ color: "red" }}>${price}</span>
+                                        <span style={{ color: "red" }}>৳{price}</span>
                                     </h5>
                                 </div>
                                 <div className="col-md-6 col-sm-12 col-lg-6 ">
