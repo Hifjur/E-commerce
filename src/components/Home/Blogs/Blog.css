@@ -1,0 +1,26 @@
+.blog_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.blog {
+    width: 100%;
+
+}
+
+.blog_imag {
+    width: 440px;
+}
+
+.blog_imag {
+    overflow: hidden;
+}
+
+.blog_imag {
+    transition: all 1.5s ease;
+}
+
+.blog_imag:hover img {
+    transform: scale(1.5);
+}

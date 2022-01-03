@@ -1,6 +1,6 @@
 import React from 'react';
-import img1 from '../../../images/categories/bag.png';
-import img2 from '../../../images/categories/shoes.png';
+import img1 from '../../../images/categories/watch-3.png';
+import img2 from '../../../images/categories/watch-2.png';
 import img3 from '../../../images/categories/watch.png';
 import './HomeAll.css'
 
@@ -12,7 +12,7 @@ const HomeAll = () => {
 
                 <div className="col-lg-4 col-md-6 col-12 mb-5">
                     <div className="watch p-3 border d-flex align-items-center justify-content-between rounded-3">
-                        <h3 className="text-white">Watch <br /> Flat 20% Discount</h3>
+                        <h3 className="text-black">Apple Watch <br /> Flat 20% Discount</h3>
                      <div className='inner'>
                             <img src={img1} alt="" />
                      </div>
@@ -21,7 +21,7 @@ const HomeAll = () => {
 
                 <div className="col-lg-4 col-md-6 col-12">
                     <div className="bag p-3 border d-flex align-items-center justify-content-between rounded-3">
-                        <h3 className="text-white">Bag <br /> Flat 20% Discount</h3>
+                        <h3 className="text-black">Men's Watches <br /> Flat 20% Discount</h3>
                         <div className='inner'>
                             <img src={img2} alt="" />
                         </div>
@@ -30,7 +30,7 @@ const HomeAll = () => {
 
                 <div className="col-lg-4 col-md-6 col-12 ">
                     <div className="shoes p-3 border d-flex align-items-center justify-content-between rounded-3">
-                        <h3 className="text-white">Shoes <br /> Flat 20% Discount</h3>
+                        <h3 className="text-black">Casio g-shock<br /> Flat 20% Discount</h3>
                         <div className='inner'>
                             <img src={img3} alt="" />
                         </div>
