@@ -1,4 +1,6 @@
 import React from 'react';
+import Footer from '../../Shared/Footer/Footer';
+import Header from '../../Shared/Header';
 import Blog from '../Blogs/Blog';
 import HomeAll from '../HomeAll/HomeAll';
 import Products from '../Products/Products/Products';
@@ -8,6 +10,7 @@ import Banner from './../Banner/Banner';
 const Home = () => {
     return (
         <div>
+            <Header/>
             <Banner></Banner>
             <Slide></Slide>
             <Products></Products>
@@ -15,7 +18,7 @@ const Home = () => {
                 <HomeAll></HomeAll>
            </div>
            <Blog></Blog>
-
+            <Footer/>
         </div>
     );
 };
