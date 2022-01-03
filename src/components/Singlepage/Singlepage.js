@@ -56,7 +56,7 @@ function Singlepage() {
                         <img src="https://i.postimg.cc/ydzNX7Wj/dress1.jpg" width="100%" height="300px"/>
                         <CardContent>
                             <Typography variant="h5" component="div">
-                                Lizard
+                               Dress four
                             </Typography>
                          
                         </CardContent>
@@ -74,7 +74,7 @@ function Singlepage() {
                         <img src="https://i.postimg.cc/CL4Qs0LN/ladies-dresses.jpg" width="100%" height="300px" />
                         <CardContent>
                             <Typography variant="h5" component="div">
-                                Lizard
+                                Dress one
                             </Typography>
                             
                         </CardContent>
@@ -92,7 +92,7 @@ function Singlepage() {
                         <img src="https://i.postimg.cc/ydzNX7Wj/dress1.jpg" width="100%" height="300px"/>
                         <CardContent>
                             <Typography variant="h5" >
-                                Dress one
+                                Dress two
                             </Typography>
                             
                         </CardContent>
@@ -110,7 +110,7 @@ function Singlepage() {
                         <img src="https://i.postimg.cc/g0Gv4jm0/ladis4.jpg" width="100%" height="300px" />
                         <CardContent>
                             <Typography  variant="h5" component="div">
-                                Lizard
+                                Dress three
                             </Typography>
                             
                         </CardContent>

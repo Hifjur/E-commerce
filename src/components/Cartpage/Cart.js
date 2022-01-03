@@ -128,7 +128,7 @@ function Cart() {
                            
                             
                                     <Button style={{width:"100%",padding:"15px"}}>
-                                       checkout
+                                       Proceed to checkout
                                     </Button>
                                 
                            
