@@ -18,7 +18,7 @@ const HomeProduct = ({ homeProduct }) => {
 
     const { title, src, price, description, category } = homeProduct;
 
-    const addToCart = (e) => {
+    const addToCart = () => {
         const cart = {
           ...homeProduct,
           status: "pending",
@@ -37,8 +37,6 @@ const HomeProduct = ({ homeProduct }) => {
               history("/cartpage");
             }
           });
-    
-        e.preventDefault();
       };
     return (
         <div className="col-md-4 mb-5 mx-5" direction="horizontal">
@@ -65,7 +63,7 @@ const HomeProduct = ({ homeProduct }) => {
                             </div>
                             <div className="col-md-6 col-sm-12 col-lg-6 ">
                                 <Link to="/cartpage">
-                                    <button onClick={()=>addToCart()} className="app_button mt-3">Add cart</button>
+                                    <button onClick={addToCart} className="app_button mt-3">Add cart</button>
                                 </Link>
 
                             </div>
