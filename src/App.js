@@ -26,6 +26,11 @@ function App() {
             <Route path="/cartpage" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
           </Routes>
+
+            <Route exact path="*" element={<NotFound />}>
+            </Route>
+          
+          <Footer></Footer>
         </AuthProvider>
       </BrowserRouter>
     </div>
