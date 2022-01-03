@@ -3,22 +3,25 @@ import Footer from '../../Shared/Footer/Footer';
 import Header from '../../Shared/Header';
 import Blog from '../Blogs/Blog';
 import HomeAll from '../HomeAll/HomeAll';
-import Products from '../Products/Products/Products';
 import Slide from '../Slide/Slide';
 import Banner from './../Banner/Banner';
+import HomeProducts from './../HomeProducts/HomeProducts/HomeProducts';
 
 const Home = () => {
     return (
         <div>
             <Header/>
+            <Header></Header>
             <Banner></Banner>
             <Slide></Slide>
-            <Products></Products>
+           <HomeProducts></HomeProducts> 
            <div className='mt-5'>
                 <HomeAll></HomeAll>
            </div>
            <Blog></Blog>
             <Footer/>
+          <Footer></Footer>
+
         </div>
     );
 };
