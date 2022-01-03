@@ -9,6 +9,18 @@
 
 }
 
-.blog_imag{
+.blog_imag {
     width: 440px;
+}
+
+.blog_imag {
+    overflow: hidden;
+}
+
+.blog_imag {
+    transition: all 1.5s ease;
+}
+
+.blog_imag:hover img {
+    transform: scale(1.5);
 }

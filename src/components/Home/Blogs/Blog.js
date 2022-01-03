@@ -12,19 +12,25 @@ const Blog = () => {
                 <h2 className='text-md-start'>From The Blog</h2>
                 <div className='blog_container'>
                     <div className='blog'>
-                        <img className="blog_imag" src={blog1} alt="" />
+                        <div className="blog_imag">
+                            <img src={blog1} alt="" />
+                        </div>
                         <h3 className='text-md-start'>The market by storm</h3>
                         <p className='text-md-start'>Inspired by our very own star, the Fusion is designed for those who aren't afraid to stand out from the background.Plated in rose gold and constructed with a fully stainless steel case, this watch is for those who know what they want and won't settle for less. </p>
                     </div>
 
                     <div className='blog'>
-                        <img className="blog_imag" src={blog2} alt="" />
+                        <div className="blog_imag">
+                            <img src={blog2} alt="" />
+                        </div>
                         <h3 className='text-md-start'> B2C E-commerce model</h3>
                         <p className='text-md-start'>Inspired by our very own star, the Fusion is designed for those who aren't afraid to stand out from the background.Plated in rose gold and constructed with a fully stainless steel case, this watch is for those who know what they want and won't settle for less. </p>
                     </div>
 
                     <div className='blog'>
-                        <img className="blog_imag" src={blog3} alt="" />
+                        <div className="blog_imag">
+                            <img  src={blog3} alt="" />
+                        </div>
                         <h3 className='text-md-start'>Goods individual customers</h3>
                         <p className='text-md-start'>Inspired by our very own star, the Fusion is designed for those who aren't afraid to stand out from the background.Plated in rose gold and constructed with a fully stainless steel case, this watch is for those who know what they want and won't settle for less. </p>
                     </div>
