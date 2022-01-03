@@ -22,8 +22,8 @@ const Product = ({ product }) => {
 
 
     return (
-        <Container>
-            <div className="col-md-4 mb-5" direction="horizontal">
+       
+            <div className="col-md-4 mb-5 mx-5" direction="horizontal">
                 <animated.div
                     className="card"
                     onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
@@ -58,7 +58,7 @@ const Product = ({ product }) => {
 
                 </animated.div>
             </div>
-        </Container>
+      
        
     );
 };
