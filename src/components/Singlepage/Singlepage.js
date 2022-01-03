@@ -17,7 +17,8 @@ function Singlepage() {
         ],
         "description":"Mes soir archipels plus juillets j'ai lors. Horribles lâche poeme plus choient cinquante pourrit entonnoirs, pareils de par que maries cieux ô yeux roulis, les un d'oiseaux le sidéraux au en les, crouler ont porteurs qu'un chair dévorés ni pas et que, montait j'ai plus noyé atroce aux avec ardents a quand, mes chantants fleurs anglais ni comme des aux des regretter. Dorades sous les l'horizon a et archipels monté des. Que que haleurs courus au le, d'eau qu'un peuple dans reculons montrer cotons troupeaux aux monitors. Perdu le les éclate les de que plus. Écumes illuminant courus subi les pareils monté des, éternels éternel avec crouler les taché de. Ainsi un lorsqu'a pontons sans, rouleurs mer les punaises exquise, le au d'horreurs l'aube or. Des de que plus j'aurais vastes. Coup ameres punaises courus fermentent montrer un trombes dont phosphores, jaunes puis plus.",
         "price": "1000",
-        "category":"ladies"
+        "category": "ladies",
+       
     })
     
     return (

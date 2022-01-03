@@ -7,6 +7,7 @@ import Login from "./components/Authentication/Login";
 import AuthProvider from "./AuthProvider/AuthProvider";
 import Register from "./components/Authentication/Register";
 import Singlepage from "./components/Singlepage/Singlepage";
+import Cart from "./components/Cartpage/Cart";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/singlepage" element={<Singlepage />} />
+            <Route path="/cartpage" element={<Cart/>} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>
