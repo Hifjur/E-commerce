@@ -1,8 +1,9 @@
 import React,{useState} from 'react'
 import { Box, Button, ButtonGroup, Card, CardActions, CardContent, CardMedia, Container, FormControl, Grid, Typography } from '@mui/material'
 import TextField from '@mui/material/TextField';
+
 function Billingsection() {
-    const [pageoption, setPageoption] = useState(true);
+    
     
 
     return (
@@ -11,13 +12,12 @@ function Billingsection() {
                
                   <Box>
                     <Typography variant='h4' style={{ backgroundColor: "#bcbbff", padding: "8px 15px", borderRadius: "5px"}}>
-                        {
-                            pageoption ?"Billing information":"Payment information"  
-                        } 
+                        
+                            Billing information 
+                        
                     </Typography>
                     <form>
-                        {
-                            pageoption ? <>
+                        
                                 <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
                                     <TextField id="outlined-basic" name="username" label="User name" variant="outlined" />
                                 </FormControl>
@@ -35,15 +35,9 @@ function Billingsection() {
                                 </FormControl>
 
                                 <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
-                                    <Button variant='contained' onClick={() =>setPageoption(false)}>Next</Button>
+                                    <Button variant='contained'>Next</Button>
                                 </FormControl>
-                            </>:"gfhfghg"
-                                
-                        }
-                       
-
-
-                    </form>
+                        </form>
                 </Box>
                 </Grid>
                 <Grid item xs={4}>

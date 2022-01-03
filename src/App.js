@@ -10,7 +10,11 @@ import Checkout from "./Checkoutpage/Checkout";
 import NotFound from "./components/Shared/NotFound/NotFound";
 import Products from "./components/Home/Products/Products/Products";
 import Blog from "./components/Home/Blogs/Blog";
+
+import Payment from "./Payment/Payment";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import Dashboard from "./components/Dashboard/Dashboard";
+
 
 function App() {
   return (
@@ -27,7 +31,10 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/singlepage" element={<Singlepage />} />
             <Route path="/cartpage" element={<Cart />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/payment" element={<Payment />} />
             <Route path="/checkout" element={<PrivateRoute><Checkout /></PrivateRoute>} />
+            
             <Route exact path="*" element={<NotFound />}>
             </Route>
           
