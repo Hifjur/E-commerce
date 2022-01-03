@@ -5,7 +5,13 @@ function Billingsection() {
 
     return (
         <Box>
-            <h1>Billing page</h1>
+            <form>
+                <input type="text" name="username" />
+                <input type="text" name="address" />
+                <input type="text" name="city" />
+                <input type="text" name="phonenumber" />
+                <input type="text" name="postalcode"/>
+           </form>
         </Box>
     )
 }
