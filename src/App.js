@@ -25,10 +25,11 @@ function App() {
             <Route path="/singlepage" element={<Singlepage />} />
             <Route path="/cartpage" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
-          </Routes>
-
             <Route exact path="*" element={<NotFound />}>
             </Route>
+          </Routes>
+
+           
           
           <Footer></Footer>
         </AuthProvider>
