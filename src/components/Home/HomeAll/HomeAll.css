@@ -1,0 +1,59 @@
+.watch {
+    background-color: rgb(33, 75, 95) !important;
+}
+
+.bag {
+    background-color: rgb(145, 64, 49);
+}
+
+.shoes {
+    background-color: rgb(84, 88, 16);
+}
+
+/* .inner {
+    overflow: hidden;
+} */
+
+.inner img {
+    transition: all 1.5s ease;
+}
+
+.inner:hover img {
+    transform: scale(1.5);
+}
+
+.all_items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 70px;
+
+}
+
+
+.fa-artstation {
+    font-size: 40px;
+}
+
+.fa-paper-plane {
+    font-size: 40px;
+}
+
+.fa-shopify {
+    font-size: 40px;
+}
+
+.fa-headset {
+    font-size: 40px;
+}
+
+.items {
+    margin-left: 20px;
+    margin-bottom: -30px;
+}
+
+.item_size {
+    width: 280px;
+    height: 80px;
+    box-shadow: 5px 10px #888888;
+
+}
