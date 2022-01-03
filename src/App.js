@@ -6,6 +6,7 @@ import Login from "./components/Authentication/Login";
 import AuthProvider from "./AuthProvider/AuthProvider";
 import Register from "./components/Authentication/Register";
 import Footer from "./components/Shared/Footer/Footer";
+import NotFound from "./components/Shared/NotFound/NotFound";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+
+            <Route exact path="*" element={<NotFound />}>
+            </Route>
           </Routes>  
           <Footer></Footer>
         </AuthProvider>
