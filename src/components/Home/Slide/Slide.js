@@ -21,6 +21,14 @@ const Slide = () => {
                     <img className="company-img" src="https://i.ibb.co/q1R2XP0/4-155x63.png" alt="" />
                 </div>
             </div>
+
+
+            <hr style={{
+                color: '#000000',
+                backgroundColor: '#000000',
+                height: 2,
+                borderColor: '#000000'
+            }} />
         </div>
     );
 };

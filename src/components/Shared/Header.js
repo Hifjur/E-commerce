@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Form, FormControl, Nav, Navbar, NavDropdown} from 'react-bootstrap';
 import icon from '../../images/icon/bangladesh.png'
 import './Header.css'
+import { HashLink } from 'react-router-hash-link';
 
 const Header = () => {
     return (
@@ -38,10 +39,10 @@ const Header = () => {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link href="#action1"><i className="fas fa-layer-group"></i></Nav.Link>
-                            <Nav.Link href="#action1"><i className="fas fa-heart"></i></Nav.Link>
-                            <Nav.Link href="#action1"><i className="fas fa-user"></i></Nav.Link>
-                            <Nav.Link href="#action1"><i className="fas fa-shopping-cart"></i></Nav.Link>
+                            <Nav.Link href="/products"><i className="fas fa-layer-group"></i></Nav.Link>
+                            <Nav.Link href=""><i className="fas fa-heart"></i></Nav.Link>
+                            <Nav.Link href=""><i className="fas fa-user"></i></Nav.Link>
+                            <Nav.Link href=""><i className="fas fa-shopping-cart"></i></Nav.Link>
 
                         </Nav>
                     </div>
@@ -62,26 +63,17 @@ const Header = () => {
            
                     <Nav defaultActiveKey="/home" as="ul">
                           <Nav.Item as="li" >
-                            <Nav.Link href="/home" className='header_navbar'>Smart Watches</Nav.Link>
+                        <Nav.Link as={HashLink} to="/" className='header_navbar'>Home</Nav.Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                           <Nav.Link className='header_navbar' eventKey="link-1">Dive Watches</Nav.Link>
+                        <Nav.Link as={HashLink} to="/products" className='header_navbar'>Shop</Nav.Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                           <Nav.Link className='header_navbar' eventKey="link-2">Solar Watches</Nav.Link>
+                       <Nav.Link as={HashLink} to="/login" className='header_navbar' >Login</Nav.Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                         <Nav.Link className='header_navbar' eventKey="link-2">Tactile</Nav.Link>
+                       <Nav.Link as={HashLink} to="/dashboard" className='header_navbar'>Dashboard</Nav.Link>
                         </Nav.Item>
-                        <Nav.Item as="li">
-                        <Nav.Link className='header_navbar' eventKey="link-2">Analog</Nav.Link>
-                        </Nav.Item>
-                      <NavDropdown className='drop_navbar' title="More" id="navbarScrollingDropdown">
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-                    
-                </NavDropdown>
                </Nav>         
                 
               <Nav className="justify-content-end all_dropDown">         

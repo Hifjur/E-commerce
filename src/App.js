@@ -7,6 +7,7 @@ import AuthProvider from "./AuthProvider/AuthProvider";
 import Register from "./components/Authentication/Register";
 import Footer from "./components/Shared/Footer/Footer";
 import NotFound from "./components/Shared/NotFound/NotFound";
+import Products from "./components/Home/Products/Products/Products";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/products" element={<Products />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
 
