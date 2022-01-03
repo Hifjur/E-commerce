@@ -7,6 +7,7 @@ import Login from "./components/Authentication/Login";
 import AuthProvider from "./AuthProvider/AuthProvider";
 import Register from "./components/Authentication/Register";
 import Products from "./components/Home/Products/Products/Products";
+import Blog from "./components/Home/Blogs/Blog";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/products" element={<Blog />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Routes>

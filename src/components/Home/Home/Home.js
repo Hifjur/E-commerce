@@ -1,4 +1,5 @@
 import React from 'react';
+import Blog from '../Blogs/Blog';
 import HomeAll from '../HomeAll/HomeAll';
 import Products from '../Products/Products/Products';
 import Slide from '../Slide/Slide';
@@ -13,6 +14,7 @@ const Home = () => {
            <div className='mt-5'>
                 <HomeAll></HomeAll>
            </div>
+           <Blog></Blog>
 
         </div>
     );
