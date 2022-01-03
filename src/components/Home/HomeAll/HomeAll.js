@@ -3,6 +3,7 @@ import img1 from '../../../images/categories/watch-3.png';
 import img2 from '../../../images/categories/watch-2.png';
 import img3 from '../../../images/categories/watch.png';
 import './HomeAll.css'
+import Blog from '../Blogs/Blog';
 
 const HomeAll = () => {
     return (
@@ -36,6 +37,8 @@ const HomeAll = () => {
                         </div>
                     </div>
                 </div>
+
+                <Blog></Blog>
 
     {/*--------------------------------  */}
                 <div className="col-lg-4 col-md-6 col-12 mt-5 all_items">
