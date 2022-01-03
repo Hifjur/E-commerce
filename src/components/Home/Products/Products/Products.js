@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Footer from '../../../Shared/Footer/Footer';
 import Product from '../Product/Product';
 import './Products.css'
 
@@ -23,6 +24,8 @@ const Products = () => {
                 }
 
             </div>
+
+            <Footer></Footer>
         </div>
     );
 };

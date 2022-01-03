@@ -1,8 +1,7 @@
 import React from 'react';
-import { Container, Image } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useSpring, animated } from "react-spring";
-import Footer from '../../../Shared/Footer/Footer';
 import './Product.css'
 
 const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.1]
@@ -59,7 +58,7 @@ const Product = ({ product }) => {
 
                 </animated.div>
 
-                <Footer></Footer>
+               
             </div>
       
        
