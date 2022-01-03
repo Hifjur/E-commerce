@@ -2,9 +2,9 @@ import React from 'react';
 import "./Footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faFacebookSquare,
-    faInstagramSquare,
-    faTwitterSquare,
+    faFacebook,
+    faInstagram,
+    faTwitter,
     faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 
@@ -28,17 +28,17 @@ const Footer = () => {
 
                                 <br />
                                 <div className="icons-container d-flex text-center mt-3">
-                                    <div className="icon">
-                                        <FontAwesomeIcon icon={faInstagramSquare} />
+                                    <div className="icon icon_instagram">
+                                        <FontAwesomeIcon icon={faInstagram} />
                                     </div>
-                                    <div className="icon">
-                                        <FontAwesomeIcon icon={faTwitterSquare} />
+                                    <div className="icon icon_twitter">
+                                        <FontAwesomeIcon icon={faTwitter} />
                                     </div>
-                                    <div className="icon">
+                                    <div className="icon icon_youtube">
                                         <FontAwesomeIcon icon={faYoutube} />
                                     </div>
-                                    <div className="icon">
-                                        <FontAwesomeIcon icon={faFacebookSquare} />
+                                    <div className="icon icon_facebook">
+                                        <FontAwesomeIcon icon={faFacebook} />
                                     </div>
                                 </div>
                                 <p className="mt-4 footer-menu">
@@ -80,7 +80,7 @@ const Footer = () => {
                                         <Form.Control as="textarea" placeholder="Message" rows={3} />
                                     </Form.Group>
 
-                                    <Button className="footer_button" >Submit</Button>
+                                    <button className="footer_button" >Submit</button>
 
                                 </Form>
 

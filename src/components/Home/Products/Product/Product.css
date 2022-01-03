@@ -37,6 +37,8 @@
     background-color: rgb(202, 15, 77) !important;
     color: white !important;
     border-radius: 4px;
+    width: 50%;
+    height: 44px;
 }
 
 .category_text{

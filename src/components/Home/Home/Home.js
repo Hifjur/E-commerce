@@ -18,7 +18,6 @@ const Home = () => {
            <div className='mt-5'>
                 <HomeAll></HomeAll>
            </div>
-           <Blog></Blog>
 
           <Footer></Footer>
 
