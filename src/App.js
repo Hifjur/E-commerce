@@ -7,6 +7,7 @@ import './App.css';
 import Header from './components/Shared/Header';
 import Home from './components/Home/Home/Home';
 import Footer from "./components/Shared/Footer/Footer";
+import NotFound from "./components/Shared/NotFound/NotFound";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
+
+          <Route exact path="*" element={<NotFound />}>
+          </Route>
            
         </Routes>
         <Footer></Footer>
