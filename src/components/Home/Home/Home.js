@@ -10,7 +10,7 @@ import HomeProducts from './../HomeProducts/HomeProducts/HomeProducts';
 const Home = () => {
     return (
         <div>
-            <Header/>
+           
             <Header></Header>
             <Banner></Banner>
             <Slide></Slide>
@@ -19,7 +19,7 @@ const Home = () => {
                 <HomeAll></HomeAll>
            </div>
            <Blog></Blog>
-            <Footer/>
+
           <Footer></Footer>
 
         </div>
