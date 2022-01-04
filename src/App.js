@@ -14,6 +14,8 @@ import Blog from "./components/Home/Blogs/Blog";
 import Payment from "./Payment/Payment";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Dashboard from "./components/Dashboard/Dashboard";
+import Addproduct from "./components/Dashboard/Addproduct/Addproduct";
+import Dashboardhome from "./components/Dashboard/Dashboardhome/Dashboardhome";
 
 
 function App() {
@@ -31,10 +33,62 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/singlepage" element={<Singlepage />} />
             <Route path="/cartpage" element={<Cart />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/payment" element={<Payment />} />
-            <Route path="/checkout" element={<PrivateRoute><Checkout /></PrivateRoute>} />
             
+            <Route path="/payment" element={<Payment />} />
+            
+              <Route
+                path="/dashboard"
+                element={
+                  <PrivateRoute>
+                    <Dashboard />
+                  </PrivateRoute>
+                }
+              >
+                <Route
+                  exact
+                  path="/dashboard"
+                  element={
+                    <PrivateRoute>
+                      <Dashboardhome></Dashboardhome>
+                    </PrivateRoute>
+                  }
+                ></Route>
+                {/* <Route
+                  path="/dashboard/payment/:id"
+                  element={
+                    <PrivateRoute>
+                      <Payment />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path={`/dashboard/makeAdmin`}
+                  element={
+                    <AdminRoute>
+                      <MakeAdmin></MakeAdmin>
+                    </AdminRoute>
+                  }
+                ></Route>
+                <Route
+                  path={`/dashboard/addhotel`}
+                  element={
+                    <AdminRoute>
+                      <AddHotel />
+                    </AdminRoute>
+                  }
+                ></Route>
+                <Route
+                  path={`/dashboard/managehotels`}
+                  element={
+                    <AdminRoute>
+                      <ManageHotels></ManageHotels>
+                    </AdminRoute>
+                  }
+              >
+                
+                </Route> */}
+            </Route>
+            <Route path="/checkout" element={<PrivateRoute><Checkout /></PrivateRoute>} />
             <Route exact path="*" element={<NotFound />}>
             </Route>
           
