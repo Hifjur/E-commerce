@@ -14,7 +14,7 @@ function Billingsection(total) {
                   <Box>
                     <Typography variant='h4' style={{ backgroundColor: "#bcbbff", padding: "8px 15px", borderRadius: "5px"}}>
                         
-                            Billing information 
+                           Shipping information 
                         
                     </Typography>
                     <form>

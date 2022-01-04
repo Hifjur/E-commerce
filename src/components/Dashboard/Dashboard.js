@@ -29,7 +29,19 @@ function Dashboard(props) {
 
   const drawer = (
     <Box style={{ backgroundColor: "#55bdca", height: "100%" }}>
-      <Toolbar />
+      
+      
+        <NavLink
+        style={{textDecoration: "none", color: "white", backgroundColor:"#55bdca",fontSize:"30px",padding:"20px",display:"flex",justifyContent:"center"}}
+          to="/dashboard"
+      >
+        <Typography style={{ fontSize: "29px"}}>
+          Dashboard
+        </Typography>
+         
+     </NavLink>
+
+      
       <Divider />
       <div>
         <NavLink
@@ -57,7 +69,7 @@ function Dashboard(props) {
                 textDecoration: "none",
                 color: "white",
               }}
-              to="/dashboard"
+              to="/dashboard/myorders"
             >
               <Button
                 sx={{ backgroundColor: "#55bdca", color: "whtie" }}
@@ -77,7 +89,7 @@ function Dashboard(props) {
                 textDecoration: "none",
                 color: "white",
               }}
-              to={`/dashboard`}
+              to={`/dashboard/allorderproduct`}
             >
               <Button
                 sx={{ backgroundColor: "#55bdca", color: "whtie" }}
@@ -165,13 +177,7 @@ function Dashboard(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, color: "D3BDBD" }}
-          >
-            Dashboard
-          </Typography>
+          
           {user?.email ? (
             <Box>
               <Typography

@@ -38,10 +38,10 @@ const Header = () => {
                                         navbarScroll
                                     >
                                 <div className='d-flex'>
-                                    <Nav.Link href="/products"><i className="fas fa-layer-group mx-2"></i></Nav.Link>
+                                    <Nav.Link as={HashLink} to="/products"><i className="fas fa-layer-group mx-2"></i></Nav.Link>
                                     <Nav.Link href=""><i className="fas fa-heart mx-2"></i></Nav.Link>
                                     <Nav.Link href=""><i className="fas fa-user mx-2"></i></Nav.Link>
-                                    <Nav.Link href=""><i className="fas fa-shopping-cart mx-2"></i></Nav.Link>
+                                    <Nav.Link as={HashLink} to="/cartpage"><i className="fas fa-shopping-cart mx-2"></i></Nav.Link>
 
                                 </div>
                                     </Nav>
