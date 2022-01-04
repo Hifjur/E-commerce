@@ -18,7 +18,7 @@ function Singlepage() {
     const [categorydata, setCategorydata] = useState([]);
     useEffect(() => {
 
-        axios.get(`http://localhost:5000/singleproduct/${id}`)
+        axios.get(`https://still-dusk-95591.herokuapp.com/singleproduct/${id}`)
             .then(res => {
                 setProduct(res.data);
                 setCategory(res.data.category)
@@ -27,7 +27,7 @@ function Singlepage() {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:5000/categoryproduct/${category}`)
+        axios.get(`https://still-dusk-95591.herokuapp.com/categoryproduct/${category}`)
             .then(res => {
                 setCategorydata(res.data);
               

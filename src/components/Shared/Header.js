@@ -6,7 +6,7 @@ import { HashLink } from 'react-router-hash-link';
 import useAuth from './../../Hooks/useAuth';
 
 const Header = () => {
-    const { user, logOut } = useAuth();
+    const { user, logout } = useAuth();
     return (
         <div>
       
@@ -72,9 +72,7 @@ const Header = () => {
                         <Nav.Item as="li">
                             <Nav.Link as={HashLink} to="/products" className='header_navbar'>Stores</Nav.Link>
                         </Nav.Item>
-                        <Nav.Item as="li">
-                            <Nav.Link as={HashLink} to="/login" className='header_navbar' >Login</Nav.Link>
-                        </Nav.Item>
+                      
                         <Nav.Item as="li">
                             <Nav.Link as={HashLink} to="/dashboard" className='header_navbar'>Dashboard</Nav.Link>
                         </Nav.Item>
@@ -91,7 +89,7 @@ const Header = () => {
 
                                     <br />
 
-                                    <Button onClick={logOut}
+                                    <Button onClick={logout}
                                         className="btn-logout mx-2" variant="secondary">Logout
                                     </Button>
                                 </NavDropdown>
@@ -100,7 +98,9 @@ const Header = () => {
 
                                 :
 
-                                <Nav.Link className="nav_bar" as={HashLink} to="/login#login">Login</Nav.Link>
+                                <Nav.Item as="li">
+                                    <Nav.Link as={HashLink} to="/login" className='header_navbar login_text' >Login</Nav.Link>
+                                </Nav.Item>
 
                         }
                     </Nav>
