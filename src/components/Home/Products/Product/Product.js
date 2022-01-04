@@ -10,7 +10,7 @@ const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg)
 
 
 const Product = ({ product }) => {
-    const history = useNavigate();
+    
     const [props, set] = useSpring(() => ({
         xys: [0, 0, 1],
         config: {
@@ -20,26 +20,7 @@ const Product = ({ product }) => {
 
     const { title, src, price, description, category } = product;
     
-    const addToCart = () => {
-        const cart = {
-          ...product,
-          status: "pending",
-        };
-
-        fetch("", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(cart),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.insertedId) {
-              history("/cartpage");
-            }
-          });
-      };
+    
 
 
     return (
@@ -69,7 +50,7 @@ const Product = ({ product }) => {
                                 </div>
                                 <div className="col-md-6 col-sm-12 col-lg-6 ">
                                     <Link to="/cartpage">
-                                        <button onClick={addToCart} className="app_button mt-3">Add cart</button>
+                                        <button className="app_button mt-3">Details</button>
                                     </Link>
 
                                 </div>
