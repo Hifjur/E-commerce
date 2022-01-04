@@ -10,6 +10,8 @@ import {
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import Footer from "../Shared/Footer/Footer";
+import Header from "../Shared/Header";
 
 const Register = () => {
   const [loginData, setLoginData] = useState({});
@@ -34,95 +36,99 @@ const Register = () => {
     e.preventDefault();
   };
   return (
-    <Container>
-      <Grid container spacing={2}>
-        <Grid sx={{ mt: 8 }} item xs={12} md={12}>
-          <Typography variant="h2" gutterBottom>
-            Register
-          </Typography>
-          {!isLoading && (
-            <form style={{ height: "400px" }} onSubmit={handleLoginSubmit}>
-              <TextField
-                sx={{ width: "75%", m: 1 }}
-                id="standard-basic"
-                label="username"
-                name="name"
-                onBlur={handleOnBlur}
-                variant="standard"
-              />
-              <TextField
-                sx={{ width: "75%", m: 1 }}
-                id="standard-basic"
-                label="email"
-                type="email"
-                name="email"
-                onBlur={handleOnBlur}
-                variant="standard"
-              />
-              <TextField
-                sx={{ width: "75%", m: 1 }}
-                id="standard-basic"
-                label="password"
-                type="password"
-                name="password"
-                onBlur={handleOnBlur}
-                variant="standard"
-              />
-              <TextField
-                sx={{ width: "75%", m: 1 }}
-                id="standard-basic"
-                label="re-enter password"
-                type="password"
-                name="password2"
-                onBlur={handleOnBlur}
-                variant="standard"
-              />
+    <div>
+      <Header></Header>
+      <Container>
+        <Grid container spacing={2}>
+          <Grid sx={{ mt: 8 }} item xs={12} md={12}>
+            <Typography variant="h2" gutterBottom>
+              Register
+            </Typography>
+            {!isLoading && (
+              <form style={{ height: "400px" }} onSubmit={handleLoginSubmit}>
+                <TextField
+                  sx={{ width: "75%", m: 1 }}
+                  id="standard-basic"
+                  label="username"
+                  name="name"
+                  onBlur={handleOnBlur}
+                  variant="standard"
+                />
+                <TextField
+                  sx={{ width: "75%", m: 1 }}
+                  id="standard-basic"
+                  label="email"
+                  type="email"
+                  name="email"
+                  onBlur={handleOnBlur}
+                  variant="standard"
+                />
+                <TextField
+                  sx={{ width: "75%", m: 1 }}
+                  id="standard-basic"
+                  label="password"
+                  type="password"
+                  name="password"
+                  onBlur={handleOnBlur}
+                  variant="standard"
+                />
+                <TextField
+                  sx={{ width: "75%", m: 1 }}
+                  id="standard-basic"
+                  label="re-enter password"
+                  type="password"
+                  name="password2"
+                  onBlur={handleOnBlur}
+                  variant="standard"
+                />
+                <Button
+                  sx={{
+                    backgroundColor: "#F27D42",
+                    color: "whtie",
+                    width: "75%",
+                  }}
+                  type="submit"
+                  color="inherit"
+                >
+                  Register
+                </Button>{" "}
+                <br />
+                <NavLink style={{ textDecoration: "none" }} to="/login">
+                  <Button variant="text">Already registered? Please login</Button>
+                </NavLink>
+              </form>
+            )}
+            {isLoading && <CircularProgress />}
+            {user?.email && (
+              <Alert severity="success">Account Creation Successful</Alert>
+            )}
+            {error && <Alert severity="error">{error}</Alert>}
+            <NavLink
+              style={{
+                display: "block",
+                marginY: 3,
+                textDecoration: "none",
+                color: "white",
+              }}
+              to="/home"
+            >
               <Button
                 sx={{
+                  marginY: 2,
+                  padding: 2,
                   backgroundColor: "#F27D42",
                   color: "whtie",
-                  width: "75%",
                 }}
-                type="submit"
                 color="inherit"
               >
-                Register
-              </Button>{" "}
-              <br />
-              <NavLink style={{ textDecoration: "none" }} to="/login">
-                <Button variant="text">Already registered? Please login</Button>
-              </NavLink>
-            </form>
-          )}
-          {isLoading && <CircularProgress />}
-          {user?.email && (
-            <Alert severity="success">Account Creation Successful</Alert>
-          )}
-          {error && <Alert severity="error">{error}</Alert>}
-          <NavLink
-            style={{
-              display: "block",
-              marginY: 3,
-              textDecoration: "none",
-              color: "white",
-            }}
-            to="/home"
-          >
-            <Button
-              sx={{
-                marginY: 2,
-                padding: 2,
-                backgroundColor: "#F27D42",
-                color: "whtie",
-              }}
-              color="inherit"
-            >
-              Home Page
-            </Button>
-          </NavLink>
+                Home Page
+              </Button>
+            </NavLink>
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+      <Footer></Footer>
+    </div>
   );
 };
 

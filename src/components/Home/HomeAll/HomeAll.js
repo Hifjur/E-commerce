@@ -3,15 +3,13 @@ import img1 from '../../../images/categories/watch-3.png';
 import img2 from '../../../images/categories/watch-2.png';
 import img3 from '../../../images/categories/watch.png';
 import './HomeAll.css'
-import Blog from '../Blogs/Blog';
+import { Container } from 'react-bootstrap';
 
 const HomeAll = () => {
     return (
-        <section className="container my-4 ">
-            <div className="row g-4">
-
-
-                <div className="col-lg-4 col-md-6 col-12 mb-5">
+      <Container>
+            <div className="first_Section">
+               <div className="first_design">
                     <div className="watch p-3 border d-flex align-items-center justify-content-between rounded-3">
                         <h3 className="text-black">Apple Watch <br /> Flat 20% Discount</h3>
                      <div className='inner'>
@@ -20,7 +18,7 @@ const HomeAll = () => {
                     </div>
                 </div>
 
-                <div className="col-lg-4 col-md-6 col-12">
+                <div className="first_design">
                     <div className="bag p-3 border d-flex align-items-center justify-content-between rounded-3">
                         <h3 className="text-black">Men's Watches <br /> Flat 20% Discount</h3>
                         <div className='inner'>
@@ -29,7 +27,7 @@ const HomeAll = () => {
                     </div>
                 </div>
 
-                <div className="col-lg-4 col-md-6 col-12 ">
+                <div className="first_design">
                     <div className="shoes p-3 border d-flex align-items-center justify-content-between rounded-3">
                         <h3 className="text-black">Casio g-shock<br /> Flat 20% Discount</h3>
                         <div className='inner'>
@@ -38,62 +36,27 @@ const HomeAll = () => {
                     </div>
                 </div>
 
-                <Blog></Blog>
-
-    {/*--------------------------------  */}
-                <div className="col-lg-4 col-md-6 col-12 mt-5 all_items">
-                   
-                       
-                   
-                    <div className="item_size d-flex border align-items-center  rounded-3">
-                        <i className="fas fa-paper-plane mx-2"></i> 
-                        <div className='items'>
-                            <h5>Worlwide Shipping</h5>
-                            <p>Order above $100</p>
-                        </div>
-                    </div>
-
-                    <div className="item_size d-flex border align-items-center  rounded-3">
-                        <i className="fab fa-artstation mx-2"></i>
-                        <div className='items'>
-                            <h5>Easy 30 Days Returns</h5>
-                            <p>Back returns in 7 days</p>
-                        </div>
-                    </div> 
-                            
-
-                    <div className="item_size d-flex border align-items-center  rounded-3">
-                        <i className="fab fa-shopify mx-2"></i>
-                        <div className='items'>
-                            <h5>Money Back Guarant</h5>
-                             <p>Guarantee with in 30 day</p>
-                        </div>
-                    </div>  
-                            
-
-                    <div className="item_size d-flex border align-items-center rounded-3">
-                        <i className="fas fa-headset mx-2"></i>
-                        <div className='items'>
-                            <h5>Easy online support</h5>
-                             <p>Any time support</p>
-                        </div>
-                    </div>
-                    
-
-
-                </div>
-
-
-
-                
 
             </div>
-        </section>
-           
+   
+           </Container>
        
     );
 };
 
 export default HomeAll;
 
-                     
+                      
+                    
+                
+                
+
+
+
+
+                
+
+                    
+
+
+                
