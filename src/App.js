@@ -37,9 +37,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/singlepage/:id" element={<PrivateRoute><Singlepage /></PrivateRoute>} />
             <Route path="/cartpage" element={<PrivateRoute><Cart /></PrivateRoute>} />
-            
             <Route path="/payment" element={<PrivateRoute><Payment /></PrivateRoute>} />
-            
               <Route
                 path="/dashboard"
                 element={
