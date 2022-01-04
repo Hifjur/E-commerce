@@ -24,8 +24,9 @@ import {
 import Addproduct from './Addproduct/Addproduct';
 import Dashboardhome from './Dashboardhome/Dashboardhome';
 import { Button, MenuItem } from '@mui/material';
+import useAuth from '../../Hooks/useAuth';
 const drawerWidth = 240;
-
+const {admin} =useAuth
 function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -35,59 +36,185 @@ function Dashboard(props) {
     };
 
     const drawer = (
-        <div>
+        <Box style={{ backgroundColor: "#55bdca", height: "100%" }}>
+      <Toolbar />
+      <Divider />
+      <div>
+        <NavLink
+          style={{
+            display: "block",
+            marginY: 3,
+            textDecoration: "none",
+            color: "white",
+          }}
+          to="/home"
+        >
+          <Button
+            sx={{ backgroundColor: "#55bdca", color: "whtie" }}
+            color="inherit"
+          >
+            Home Page
+          </Button>
+        </NavLink>
+        {!admin && (
+          <Box>
+            <NavLink
+              style={{
+                display: "block",
+                marginY: 3,
+                textDecoration: "none",
+                color: "white",
+              }}
+              to="/"
+            >
+              <Button
+                sx={{ backgroundColor: "#55bdca", color: "whtie" }}
+                color="inherit"
+              >
+                Explore More
+              </Button>
+            </NavLink>
+            <NavLink
+              style={{
+                display: "block",
+                marginY: 3,
+                textDecoration: "none",
+                color: "white",
+              }}
+              to="/dashboard"
+            >
+              <Button
+                sx={{ backgroundColor: "#55bdca", color: "whtie" }}
+                color="inherit"
+              >
+                My Orders
+              </Button>
+            </NavLink>
+          </Box>
+        )}
+        {admin && (
+          <Box>
+            <NavLink
+              style={{
+                display: "block",
+                marginY: 3,
+                textDecoration: "none",
+                color: "white",
+              }}
+              to={`/dashboard`}
+            >
+              <Button
+                sx={{ backgroundColor: "#55bdca", color: "whtie" }}
+                color="inherit"
+              >
+                Mange All Orders
+              </Button>
+            </NavLink>
+            <NavLink
+              style={{
+                display: "block",
+                marginY: 3,
+                textDecoration: "none",
+                color: "white",
+              }}
+              to={`/dashboard/makeAdmin`}
+            >
+              <Button
+                sx={{ backgroundColor: "#55bdca", color: "whtie" }}
+                color="inherit"
+              >
+                Make Admin
+              </Button>
+            </NavLink>
+            <NavLink
+              style={{
+                display: "block",
+                marginY: 3,
+                textDecoration: "none",
+                color: "white",
+              }}
+              to={`/dashboard/addhotel`}
+            >
+              <Button
+                sx={{ backgroundColor: "#55bdca", color: "whtie" }}
+                color="inherit"
+              >
+                Add New Hotel
+              </Button>
+            </NavLink>
+            <NavLink
+              style={{
+                display: "block",
+                marginY: 3,
+                textDecoration: "none",
+                color: "white",
+              }}
+              to={`/dashboard/managehotels`}
+            >
+              <Button
+                sx={{ backgroundColor: "#55bdca", color: "whtie" }}
+                color="inherit"
+              >
+                Manage Hotels
+              </Button>
+            </NavLink>
+          </Box>
+        )}
+      </div>
+    </Box>
+        // <div>
             
-            <List sx={{ bgcolor: "#F8C471 ", height: "100vh" }}>
+        //     <List sx={{ bgcolor: "#F8C471 ", height: "100vh" }}>
 
-                <MenuItem>
-                    <ListItemIcon>
+        //         <MenuItem>
+        //             <ListItemIcon>
                            
-                    </ListItemIcon>
+        //             </ListItemIcon>
 
-                    <Button>Home</Button>
-                </MenuItem>
-                <Divider />
-
-
-
-                <MenuItem>
-                    <ListItemIcon>
-
-                    </ListItemIcon>
-
-                    <Button>Add product</Button>
-                </MenuItem>
+        //             <Button>Home</Button>
+        //         </MenuItem>
+        //         <Divider />
 
 
 
-                <MenuItem>
-                    <ListItemIcon>
+        //         <MenuItem>
+        //             <ListItemIcon>
 
-                    </ListItemIcon>
+        //             </ListItemIcon>
 
-                    <Button>Manage product</Button>
-                </MenuItem>
-
-
-                <MenuItem>
-                    <ListItemIcon>
-
-                    </ListItemIcon>
-
-                    <Button>All product</Button>
-                </MenuItem>
+        //             <Button>Add product</Button>
+        //         </MenuItem>
 
 
-                <MenuItem>
-                    <ListItemIcon>
 
-                    </ListItemIcon>
+        //         <MenuItem>
+        //             <ListItemIcon>
 
-                    <Button>Logout</Button>
-                </MenuItem>
+        //             </ListItemIcon>
 
-            </List>
-        </div>
+        //             <Button>Manage product</Button>
+        //         </MenuItem>
+
+
+        //         <MenuItem>
+        //             <ListItemIcon>
+
+        //             </ListItemIcon>
+
+        //             <Button>All product</Button>
+        //         </MenuItem>
+
+
+        //         <MenuItem>
+        //             <ListItemIcon>
+
+        //             </ListItemIcon>
+
+        //             <Button>Logout</Button>
+        //         </MenuItem>
+
+        //     </List>
+        // </div>
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
