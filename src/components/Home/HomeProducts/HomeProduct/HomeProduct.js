@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSpring, animated } from "react-spring";
 import './HomeProduct.css'
 
@@ -8,7 +8,7 @@ const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWid
 const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 
 const HomeProduct = ({ homeProduct }) => {
-    const history = useNavigate();
+    
     const [props, set] = useSpring(() => ({
         xys: [0, 0, 1],
         config: {
@@ -18,26 +18,6 @@ const HomeProduct = ({ homeProduct }) => {
 
     const { title, src, price, description, category } = homeProduct;
 
-    const addToCart = () => {
-        const cart = {
-          ...homeProduct,
-          status: "pending",
-        };
-
-        fetch("", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(cart),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.insertedId) {
-              history("/cartpage");
-            }
-          });
-      };
     return (
         <div className="col-md-4 mb-5 mx-5" direction="horizontal">
             <animated.div
@@ -62,8 +42,8 @@ const HomeProduct = ({ homeProduct }) => {
                                 </h5>
                             </div>
                             <div className="col-md-6 col-sm-12 col-lg-6 ">
-                                <Link to="/cartpage">
-                                    <button onClick={addToCart} className="app_button mt-3">Add cart</button>
+                                <Link to="/singlepage">
+                                    <button className="app_button mt-3">Details</button>
                                 </Link>
 
                             </div>
