@@ -11,7 +11,7 @@ function Cart() {
     const {user}=useAuth()
    
     useEffect(() => {
-        axios.get(`http://localhost:5000/cartproductshow/${user.email}`)
+        axios.get(`https://still-dusk-95591.herokuapp.com/cartproductshow/${user.email}`)
             .then((res) => setCartdata(res.data))
             .then((err) => console.log(err))
     }, []);
