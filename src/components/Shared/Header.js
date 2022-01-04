@@ -17,7 +17,7 @@ const Header = () => {
                                 </div>
 
                                 <div>
-                                <Form className='d-flex '>
+                                <Form className='d-flex search'>
                                 <input type="search" name="" placeholder='Search' className='search_place'/>
                                       <button className="header_button">
                                             <i className="fas fa-search"></i>
@@ -35,11 +35,13 @@ const Header = () => {
                                         style={{ maxHeight: '100px' }}
                                         navbarScroll
                                     >
-                                        <Nav.Link href="/products"><i className="fas fa-layer-group"></i></Nav.Link>
-                                        <Nav.Link href=""><i className="fas fa-heart"></i></Nav.Link>
-                                        <Nav.Link href=""><i className="fas fa-user"></i></Nav.Link>
-                                        <Nav.Link href=""><i className="fas fa-shopping-cart"></i></Nav.Link>
+                                <div className='d-flex'>
+                                    <Nav.Link href="/products"><i className="fas fa-layer-group mx-2"></i></Nav.Link>
+                                    <Nav.Link href=""><i className="fas fa-heart mx-2"></i></Nav.Link>
+                                    <Nav.Link href=""><i className="fas fa-user mx-2"></i></Nav.Link>
+                                    <Nav.Link href=""><i className="fas fa-shopping-cart mx-2"></i></Nav.Link>
 
+                                </div>
                                     </Nav>
                                 </div>
 
@@ -58,7 +60,9 @@ const Header = () => {
                     }} />
 
 
-
+                 
+           <div className='navbar_section'> 
+                <div>
                     <Nav defaultActiveKey="/home" as="ul">
                         <Nav.Item as="li" >
                             <Nav.Link as={HashLink} to="/" className='header_navbar'>Home</Nav.Link>
@@ -73,14 +77,16 @@ const Header = () => {
                             <Nav.Link as={HashLink} to="/dashboard" className='header_navbar'>Dashboard</Nav.Link>
                         </Nav.Item>
                     </Nav>
+                </div>
 
+               <div>
                     <Nav className="justify-content-end all_dropDown">
                         <NavDropdown title={<img className='drop_down' src={icon} alt="" />} id="navbarScrollingDropdown" className='nav_dropDown '>
                             <NavDropdown.Item href="#action3">বাংলা</NavDropdown.Item>
                             <NavDropdown.Item href="#action4">English</NavDropdown.Item>
                         </NavDropdown>
 
-                        <p className=' break_point'>|</p>
+                        <p className=' break_point mx-2'>|</p>
 
 
                         <NavDropdown title="$" id="navbarScrollingDropdown" className='nav_dropDown'>
@@ -89,6 +95,8 @@ const Header = () => {
                             <NavDropdown.Item href="#action4">$ US Dollar</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>   
+               </div>
+            </div>
        
       
         </div>    

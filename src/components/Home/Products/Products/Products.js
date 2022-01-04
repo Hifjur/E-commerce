@@ -14,9 +14,11 @@ const Products = () => {
           .then(data => setProducts(data))
     }, [])
     return (
-       <Container>
-            <div>
-                <Header></Header>
+        <div>
+            <Header></Header>
+            <Container>
+           
+              
                 <div>
                     <h2 className='mb-5 mt-5 services_text text-sm-start mx-3'>Dress collection</h2>
                     <div className="services_container">
@@ -32,9 +34,10 @@ const Products = () => {
 
                     <Footer></Footer>
                 </div>
-            </div>
+            
 
        </Container>
+       </div>
     );
 };
 
