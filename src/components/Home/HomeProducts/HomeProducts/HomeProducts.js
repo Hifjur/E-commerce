@@ -9,7 +9,7 @@ const HomeProducts = () => {
     const [limit, setLimit] = useState(6);
 
     useEffect(() => {
-        fetch('https://sleepy-tundra-35830.herokuapp.com/products')
+        fetch('https://still-dusk-95591.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setHomeProducts(data))
     }, [])
