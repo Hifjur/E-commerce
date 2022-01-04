@@ -4,6 +4,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Divider from '@mui/material/Divider';
 import axios from 'axios'
 import useAuth from '../../Hooks/useAuth';
+import Header from '../Shared/Header';
+import Footer from '../Shared/Footer/Footer';
 function Cart() {
     const [cartdata, setCartdata] = useState([]);
     const {user}=useAuth()
@@ -13,9 +15,13 @@ function Cart() {
             .then((res) => setCartdata(res.data))
             .then((err) => console.log(err))
     }, []);
-
+    let total = 0;
     let i = 0;
+    let delivarycharge = 20;
+    let tax=0
     return (
+        <>
+            <Header/>
         <Container style={{marginTop:"10px"}}>
 
             <Grid container spacing={2}>
@@ -40,6 +46,7 @@ function Cart() {
                                     {
                                         cartdata?.map((cart) => {
                                             i++
+                                            total = total + parseInt(cart.price);
                                             return (
                                                 <TableRow
 
@@ -63,7 +70,7 @@ function Cart() {
                                         })
                                     }
                                         
-                                   {i} 
+                                 
                                 </TableBody>
                             </Table>
                         </TableContainer>
@@ -78,7 +85,7 @@ function Cart() {
                             <ListItem
                                 secondaryAction={
                                     <IconButton edge="end" aria-label="delete">
-                                        1
+                                        {i}
                                     </IconButton>
                                 }
                             >
@@ -90,7 +97,7 @@ function Cart() {
                                 <ListItem
                                         secondaryAction={
                                             <IconButton edge="end" aria-label="delete">
-                                                $1000
+                                               ${total}
                                             </IconButton>
                                         }
                                   >
@@ -116,7 +123,8 @@ function Cart() {
                             <ListItem
                                 secondaryAction={
                                     <IconButton edge="end" aria-label="delete">
-                                        $102
+
+                                       ${tax = (total + 20) / 10}
                                     </IconButton>
                                 }
                             >
@@ -128,7 +136,7 @@ function Cart() {
                             <ListItem
                                 secondaryAction={
                                     <IconButton edge="end" aria-label="delete">
-                                        $1122
+                                        ${total+tax+20}
                                     </IconButton>
                                 }
                             >
@@ -152,7 +160,9 @@ function Cart() {
                 </Grid>
                 
             </Grid>
-        </Container>
+            </Container>
+            <Footer/>
+        </>
     )
 }
 

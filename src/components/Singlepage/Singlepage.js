@@ -6,6 +6,8 @@ import './singlepage.css'
 import useAuth from "../../Hooks/useAuth";
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
+import Header from '../Shared/Header';
+import Footer from '../Shared/Footer/Footer';
 function Singlepage() {
     const [indexNumber, setIndexNumber] = useState(0);
     const history = useNavigate();
@@ -66,6 +68,8 @@ function Singlepage() {
 
     
     return (
+        <>
+        <Header/>
         <Container sx={{ mt: "30px" }}>
             {/* singleproduct */}
             <Grid container spacing={2} sx={{paddingBottom:"15px",paddingRight:"15px",borderRadius:"10px"}}>
@@ -129,7 +133,9 @@ function Singlepage() {
                 }
                 
             </Grid>
-        </Container>
+            </Container>
+            <Footer/>
+        </>
     )
 }
 
