@@ -57,22 +57,6 @@ function Dashboard(props) {
                 textDecoration: "none",
                 color: "white",
               }}
-              to="/"
-            >
-              <Button
-                sx={{ backgroundColor: "#55bdca", color: "whtie" }}
-                color="inherit"
-              >
-                Explore More
-              </Button>
-            </NavLink>
-            <NavLink
-              style={{
-                display: "block",
-                marginY: 3,
-                textDecoration: "none",
-                color: "white",
-              }}
               to="/dashboard"
             >
               <Button
@@ -125,13 +109,13 @@ function Dashboard(props) {
                 textDecoration: "none",
                 color: "white",
               }}
-              to={`/dashboard/addhotel`}
+              to={`/dashboard/addproduct`}
             >
               <Button
                 sx={{ backgroundColor: "#55bdca", color: "whtie" }}
                 color="inherit"
               >
-                Add New Hotel
+                Add New Products
               </Button>
             </NavLink>
             <NavLink
@@ -141,13 +125,13 @@ function Dashboard(props) {
                 textDecoration: "none",
                 color: "white",
               }}
-              to={`/dashboard/managehotels`}
+              to={`/dashboard/manageProduct`}
             >
               <Button
                 sx={{ backgroundColor: "#55bdca", color: "whtie" }}
                 color="inherit"
               >
-                Manage Hotels
+                Manage Products
               </Button>
             </NavLink>
           </Box>
