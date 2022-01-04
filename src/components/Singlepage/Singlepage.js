@@ -17,7 +17,7 @@ function Singlepage() {
           email:user.email
         };
 
-        fetch("", {
+        fetch("https://still-dusk-95591.herokuapp.com/addtocart", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -27,6 +27,7 @@ function Singlepage() {
           .then((res) => res.json())
           .then((data) => {
             if (data.insertedId) {
+                console.log('success');
               history("/cartpage");
             }
           });

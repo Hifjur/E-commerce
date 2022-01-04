@@ -1,7 +1,8 @@
 import { Button, CircularProgress, Container } from "@mui/material";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
-import useAuth from "../../Hooks/useAuth";
+import useAuth from "../Hooks/useAuth";
+
 
 const CheckoutForm = ({ bookings }) => {
   const { rent, customerName, _id } = bookings;
