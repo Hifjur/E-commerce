@@ -7,6 +7,7 @@ import useAuth from '../../Hooks/useAuth';
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer/Footer';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 function Cart() {
     const [cartdata, setCartdata] = useState([]);
     const {user}=useAuth()
@@ -17,7 +18,26 @@ function Cart() {
 
             .then((res) => setCartdata(res.data))
             .then((err) => console.log(err))
-    }, []);
+    }, [cartdata]);
+
+
+    const hendledelete = (id) => {
+        const confirmdelete = window.confirm("Are you sure you want to delete this product?");
+        if (confirmdelete) {
+
+            axios.delete(`https://still-dusk-95591.herokuapp.com/cartproductdelete/${id}`).then(res => {
+
+                const filterdata = cartdata.filter(data => data._id !== id);
+                setCartdata(filterdata);
+                swal("Good job!", "cart product delete successfully", "success");
+
+
+            }).catch(err => console.log(err))
+        }
+    }
+
+
+
     let total = 0;
     let i = 0;
     let delivarycharge = 20;
@@ -65,7 +85,7 @@ function Cart() {
                                                     <TableCell align="center">{ cart.price}</TableCell>
                                                     <TableCell align="center">
                                                         <IconButton color="secondary">
-                                                            <DeleteIcon/>
+                                                            <DeleteIcon onClick={() =>hendledelete(cart._id)}/>
                                                         </IconButton>
                                                     </TableCell>
                                                 </TableRow>
