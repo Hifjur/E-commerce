@@ -8,8 +8,8 @@ import './Blog.css'
 const Blog = () => {
     return (
        <Container>
-            <div className='mt-5'>
-                <h2 className='text-md-start'>From The Blog</h2>
+            <div className='mt-5 my-5'>
+                <h2 className='text-md-start blog_text'>From The Blog</h2>
                 <div className='blog_container'>
                     <div className='blog'>
                         <div className="blog_imag">
