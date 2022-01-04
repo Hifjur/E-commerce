@@ -32,14 +32,20 @@ function Singlepage() {
             }).catch(err => console.log(err))
     }, [category])
 
-    
-    console.log(id)
+   
     const addToCart = () => {
         console.log('clciked')
+        let mydata = { ...product }
+        let {category,description,price,src,title}=mydata
+        console.log(category)
         const cart = {
-          ...product,
-          status: "pending",
-          email:user.email
+            category,
+            description,
+            price,
+            src,
+            title,
+            status: "pending",
+            email:user.email
         };
 
         fetch("https://still-dusk-95591.herokuapp.com/addtocart", {
@@ -96,12 +102,24 @@ function Singlepage() {
                                     </CardContent>
                                     <CardActions>
                                         <ButtonGroup disableElevation variant="contained" style={{ width: "100%" }}>
-                                            <Link to={`/singlepage/${catdata._id}`}>
-                                                <Button variant="contained" style={{ width: "50%", }}>Details</Button>
-                                            </Link>
+                                           
+                                            <Link to={`/singlepage/${catdata._id}`} variant="contained" style={{
+                                                width: "100%",
+                                                backgroundColor: "green",
+                                                borderRadius: "5px",
+                                                color: "white",
+                                                display:"flex",
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                                textDecoration: "none",
+                                                fontWeight: "bold",
+                                                padding:"5px"
+                                                
+                                            }}>Details</Link>
                                             
                                             
-                                            <Button variant="contained" color="secondary" style={{ width: "50%" }}>Add to cart</Button>
+                                            
+                                           
                                         </ButtonGroup>
                                     </CardActions>
                                 </Card>

@@ -10,9 +10,11 @@ function Cart() {
    
     useEffect(() => {
         axios.get(`http://localhost:5000/cartproductshow/${user.email}`)
-                .then((res) => setCartdata(res.data))
-                .then((err) => console.log(err))
-    },[])
+            .then((res) => setCartdata(res.data))
+            .then((err) => console.log(err))
+    }, []);
+
+    let i = 0;
     return (
         <Container style={{marginTop:"10px"}}>
 
@@ -37,6 +39,7 @@ function Cart() {
                                 <TableBody>
                                     {
                                         cartdata?.map((cart) => {
+                                            i++
                                             return (
                                                 <TableRow
 
@@ -47,7 +50,7 @@ function Cart() {
                                                     </TableCell>
                                                     <TableCell align="center">{ cart.title}</TableCell>
                                                     <TableCell align="center">
-                                                        <input type="number" min="1" style={{ width: "80px" }} />
+                                                        <input type="number" value="1" min="1" style={{ width: "80px" }} />
                                                     </TableCell>
                                                     <TableCell align="center">{ cart.price}</TableCell>
                                                     <TableCell align="center">
@@ -60,7 +63,7 @@ function Cart() {
                                         })
                                     }
                                         
-                                    
+                                   {i} 
                                 </TableBody>
                             </Table>
                         </TableContainer>
