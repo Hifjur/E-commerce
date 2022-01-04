@@ -70,7 +70,7 @@ function Singlepage() {
                         })}
                     </div>
                     <br/>
-                    <Button variant='contained' color="secondary">Add to cart</Button>
+                    <Button onClick={addToCart}  variant='contained' color="secondary">Add to cart</Button>
                 </Grid>
             </Grid> 
             {/* singleproduct end */}
@@ -143,7 +143,7 @@ function Singlepage() {
                         <CardActions>
                             <ButtonGroup disableElevation variant="contained" style={{ width: "100%" }}>
                                 <Button variant="contained" style={{ width: "50%", }}>Details</Button>
-                                <Button onClick={addToCart} variant="contained" color="secondary" style={{ width: "50%" }}>Add to cart</Button>
+                                <Button  variant="contained" color="secondary" style={{ width: "50%" }}>Add to cart</Button>
                             </ButtonGroup>
                         </CardActions>
                     </Card>
