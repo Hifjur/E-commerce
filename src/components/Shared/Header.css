@@ -110,6 +110,10 @@
     .all_dropDown {
         margin-right: 30px;
     }
+
+    .drop_down {
+        width: 77%;
+    }
 }
 
 @media only screen and (min-width:689px) and (max-width: 991px) {
@@ -123,5 +127,8 @@
         grid-gap: 30px;
     }
 
+    .drop_down {
+        width: 200%;
+    }
 
 }
