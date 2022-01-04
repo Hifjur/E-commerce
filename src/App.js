@@ -37,7 +37,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/singlepage/:id" element={<PrivateRoute><Singlepage /></PrivateRoute>} />
             <Route path="/cartpage" element={<PrivateRoute><Cart /></PrivateRoute>} />
-            <Route path="/payment" element={<PrivateRoute><Payment /></PrivateRoute>} />
+            <Route path="/payment/:total" element={<PrivateRoute><Payment /></PrivateRoute>} />
               <Route
                 path="/dashboard"
                 element={
@@ -84,7 +84,7 @@ function App() {
                 
                 </Route>
             </Route>
-            <Route path="/checkout" element={<PrivateRoute><Checkout /></PrivateRoute>} />
+            <Route path="/checkout/:total" element={<PrivateRoute><Checkout /></PrivateRoute>} />
             <Route exact path="*" element={<NotFound />}>
             </Route>
           

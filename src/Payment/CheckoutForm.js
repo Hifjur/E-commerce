@@ -1,13 +1,14 @@
 import { Button, CircularProgress, Container } from "@mui/material";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 
 
-const CheckoutForm = ({ order }) => {
-  const { rent, customerName, _id } = order;
+const CheckoutForm = ({ total }) => {
+  
   const { user } = useAuth();
-
+  const _id = 5;
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState("");
@@ -21,11 +22,11 @@ const CheckoutForm = ({ order }) => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ rent }),
+      body: JSON.stringify({ total }),
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
-  }, [rent]);
+  }, [total]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,7 +56,6 @@ const CheckoutForm = ({ order }) => {
         payment_method: {
           card: card,
           billing_details: {
-            name: customerName,
             email: user.email,
           },
         },
@@ -116,7 +116,7 @@ const CheckoutForm = ({ order }) => {
             sx={{ backgroundColor: "#F27D42", m: 1 }}
             variant="contained"
           >
-            Pay ${rent}
+            Pay ${total}
           </Button>
         )}
       </form>

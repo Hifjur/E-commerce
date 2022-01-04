@@ -6,12 +6,13 @@ import axios from 'axios'
 import useAuth from '../../Hooks/useAuth';
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer/Footer';
+import { Link } from 'react-router-dom';
 function Cart() {
     const [cartdata, setCartdata] = useState([]);
     const {user}=useAuth()
-   
+
     useEffect(() => {
-        axios.get(`http://localhost:5000/cartproductshow/${user.email}`)
+        axios.get(`https://still-dusk-95591.herokuapp.com/${user.email}`)
             .then((res) => setCartdata(res.data))
             .then((err) => console.log(err))
     }, []);
@@ -147,10 +148,11 @@ function Cart() {
                             </ListItem>
                             <Divider />
                            
-                            
-                                    <Button style={{width:"100%",padding:"15px"}}>
-                                       Proceed to checkout
-                                    </Button>
+                            <Link to={`/checkout/${total}`}>
+                            <Button style={{width:"100%",padding:"15px"}}>
+                                Proceed to checkout   
+                            </Button></Link>
+                                
                                 
                            
                           
