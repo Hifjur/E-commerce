@@ -54,9 +54,7 @@ const MakeAdmin = () => {
 
                 </form>
 
-                {
-                    adminSuccess && <Alert severity="success">Made Admin</Alert>
-                }
+               
 
             </div>
 
