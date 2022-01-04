@@ -1,10 +1,12 @@
 import React from 'react';
-import { Col, Container, Form, FormControl, Nav, Navbar, NavDropdown, Row} from 'react-bootstrap';
+import { Button, Container, Form, Nav, Navbar, NavDropdown} from 'react-bootstrap';
 import icon from '../../images/icon/bangladesh.png'
 import './Header.css'
 import { HashLink } from 'react-router-hash-link';
+import useAuth from './../../Hooks/useAuth';
 
 const Header = () => {
+    const { user, logOut } = useAuth();
     return (
         <div>
       
@@ -13,7 +15,7 @@ const Header = () => {
                             <div className='header mt-2'>
                                 <div>
                                     <Navbar.Brand href="#"><i className="fab fa-etsy"></i><span className='commerce'>-commerce</span></Navbar.Brand>
-                                    {/* <Navbar.Toggle aria-controls="navbarScroll" /> */}
+
                                 </div>
 
                                 <div>
@@ -76,6 +78,31 @@ const Header = () => {
                         <Nav.Item as="li">
                             <Nav.Link as={HashLink} to="/dashboard" className='header_navbar'>Dashboard</Nav.Link>
                         </Nav.Item>
+
+                        {
+                            user?.email ?
+                                <NavDropdown className="text" title="Signed in as:" id="basic-nav-dropdown">
+                                    <div>
+                                        <p className="text-danger mx-4" href="#login">Name- {user?.displayName}</p>
+
+                                        <p className="text-danger mx-4" href="#login">Email- {user?.email}</p>
+
+                                    </div>
+
+                                    <br />
+
+                                    <Button onClick={logOut}
+                                        className="btn-logout mx-2" variant="secondary">Logout
+                                    </Button>
+                                </NavDropdown>
+
+
+
+                                :
+
+                                <Nav.Link className="nav_bar" as={HashLink} to="/login#login">Login</Nav.Link>
+
+                        }
                     </Nav>
                 </div>
 
