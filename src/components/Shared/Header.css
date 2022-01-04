@@ -9,8 +9,8 @@
     font-size: 25px;
 }
 
-.form_button {
-    width: 700px;
+.search_place{
+    width:  230px;
 }
 
 
@@ -91,4 +91,48 @@
     margin-top: -6px;
     color: rgb(40, 76, 129) !important;
     font-size: 30px;
+}
+
+@media only screen and (max-width:688px) {
+    .header {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 30px;
+    }
+
+    .fa-etsy {
+        font-size: 20px;
+        color: rgb(64, 7, 37) !important;
+
+    }
+
+    .commerce {
+        font-family: cursive;
+        font-size: 15px;
+    }
+
+    .header_dropDown {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media only screen and (min-width:689px) and (max-width: 991px) {
+    .header {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+    }
+
+    .fa-etsy {
+        font-size: 20px;
+        color: rgb(64, 7, 37) !important;
+
+    }
+
+    .commerce {
+        font-family: cursive;
+        font-size: 15px;
+    }
+
+    .header_dropDown {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
