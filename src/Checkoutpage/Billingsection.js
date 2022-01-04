@@ -1,8 +1,9 @@
 import React,{useState} from 'react'
 import { Box, Button, ButtonGroup, Card, CardActions, CardContent, CardMedia, Container, FormControl, Grid, Typography } from '@mui/material'
 import TextField from '@mui/material/TextField';
+import { Link } from 'react-router-dom';
 
-function Billingsection() {
+function Billingsection(total) {
     
     
 
@@ -35,7 +36,7 @@ function Billingsection() {
                                 </FormControl>
 
                                 <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
-                                    <Button variant='contained'>Next</Button>
+                                    <Link to={`/payment/${total?.total}`}><Button variant='contained'>Next</Button></Link>
                                 </FormControl>
                         </form>
                 </Box>
