@@ -73,7 +73,7 @@ function Dashboard(props) {
                 textDecoration: "none",
                 color: "white",
               }}
-              to="/dashboard"
+              to="/dashboard/addproduct"
             >
               <Button
                 sx={{ backgroundColor: "#55bdca", color: "whtie" }}

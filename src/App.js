@@ -31,7 +31,7 @@ function App() {
             <Route path="/products" element={<Blog />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/singlepage" element={<Singlepage />} />
+            <Route path="/singlepage/:id" element={<Singlepage />} />
             <Route path="/cartpage" element={<Cart />} />
             
             <Route path="/payment" element={<Payment />} />
@@ -52,7 +52,18 @@ function App() {
                       <Dashboardhome></Dashboardhome>
                     </PrivateRoute>
                   }
-                ></Route>
+              ></Route>
+              
+
+              <Route
+                exact
+                path="/dashboard/addproduct"
+                element={
+                  <PrivateRoute>
+                    <Dashboardhome></Dashboardhome>
+                  </PrivateRoute>
+                }
+              ></Route>
                 {/* <Route
                   path="/dashboard/payment/:id"
                   element={
