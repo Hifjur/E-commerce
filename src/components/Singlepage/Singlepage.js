@@ -1,11 +1,38 @@
 import { Box, Button, ButtonGroup, Card, CardActions, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import Magnifier from "react-magnifier";
+import { useNavigate } from 'react-router-dom';
 import './singlepage.css'
-
+import useAuth from "../../Hooks/useAuth";
 
 function Singlepage() {
     const [indexNumber, setIndexNumber] = useState(0);
+    const history = useNavigate();
+    const {user} = useAuth();
+    const addToCart = () => {
+        console.log('clciked')
+        const cart = {
+          ...product,
+          status: "pending",
+          email:user.email
+        };
+
+        fetch("https://still-dusk-95591.herokuapp.com/addtocart", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(cart),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+                console.log('success');
+              history("/cartpage");
+            }
+          });
+      };
+
     const [product, setProduct] = useState({
         "id": 1,
         "title": "Dress one",
@@ -33,7 +60,7 @@ function Singlepage() {
                     <p style={{textAlign:"justify"}}>{product.description}</p>
                     
                     <br/>
-                    <Button variant='contained' color="secondary">Add to cart</Button>
+                    <Button onClick={addToCart}  variant='contained' color="secondary">Add to cart</Button>
                 </Grid>
             </Grid> 
             {/* singleproduct end */}
@@ -106,7 +133,7 @@ function Singlepage() {
                         <CardActions>
                             <ButtonGroup disableElevation variant="contained" style={{ width: "100%" }}>
                                 <Button variant="contained" style={{ width: "50%", }}>Details</Button>
-                                <Button variant="contained" color="secondary" style={{ width: "50%" }}>Add to cart</Button>
+                                <Button  variant="contained" color="secondary" style={{ width: "50%" }}>Add to cart</Button>
                             </ButtonGroup>
                         </CardActions>
                     </Card>
