@@ -28,8 +28,7 @@ const MakeAdmin = () => {
 
                     setAdminSuccess(true); console.log(data)
                 }
-
-            })
+})
 
 
         e.preventDefault()
