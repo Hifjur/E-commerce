@@ -47,7 +47,7 @@ function Dashboard(props) {
             textDecoration: "none",
             color: "white",
           }}
-          to="/home"
+          to="/dashboard/home"
         >
           <Button
             sx={{ backgroundColor: "#55bdca", color: "whtie" }}
@@ -81,7 +81,7 @@ function Dashboard(props) {
                 textDecoration: "none",
                 color: "white",
               }}
-              to="/dashboard"
+              to="/dashboard/addproduct"
             >
               <Button
                 sx={{ backgroundColor: "#55bdca", color: "whtie" }}
@@ -162,59 +162,7 @@ function Dashboard(props) {
         )}
       </div>
     </Box>
-        // <div>
-            
-        //     <List sx={{ bgcolor: "#F8C471 ", height: "100vh" }}>
-
-        //         <MenuItem>
-        //             <ListItemIcon>
-                           
-        //             </ListItemIcon>
-
-        //             <Button>Home</Button>
-        //         </MenuItem>
-        //         <Divider />
-
-
-
-        //         <MenuItem>
-        //             <ListItemIcon>
-
-        //             </ListItemIcon>
-
-        //             <Button>Add product</Button>
-        //         </MenuItem>
-
-
-
-        //         <MenuItem>
-        //             <ListItemIcon>
-
-        //             </ListItemIcon>
-
-        //             <Button>Manage product</Button>
-        //         </MenuItem>
-
-
-        //         <MenuItem>
-        //             <ListItemIcon>
-
-        //             </ListItemIcon>
-
-        //             <Button>All product</Button>
-        //         </MenuItem>
-
-
-        //         <MenuItem>
-        //             <ListItemIcon>
-
-        //             </ListItemIcon>
-
-        //             <Button>Logout</Button>
-        //         </MenuItem>
-
-        //     </List>
-        // </div>
+        
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
@@ -290,25 +238,7 @@ function Dashboard(props) {
                 </Routes> */}
 
                
-                    <NavLink
-                        style={{
-                            display: "block",
-                            marginY: 3,
-                            textDecoration: "none",
-                            color: "white",
-                        }}
-                        to="/home"
-                >
                     
-                        <Button
-                            sx={{ backgroundColor: "#55bdca", color: "whtie" }}
-                            color="inherit"
-                        >
-                            Home Page
-                        </Button>
-                    </NavLink>
-                    
-                
             </Box>
         </Box>
     );

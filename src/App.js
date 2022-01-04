@@ -31,10 +31,10 @@ function App() {
             <Route path="/products" element={<Blog />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/singlepage" element={<Singlepage />} />
-            <Route path="/cartpage" element={<Cart />} />
+            <Route path="/singlepage/:id" element={<PrivateRoute><Singlepage /></PrivateRoute>} />
+            <Route path="/cartpage" element={<PrivateRoute><Cart /></PrivateRoute>} />
             
-            <Route path="/payment" element={<Payment />} />
+            <Route path="/payment" element={<PrivateRoute><Payment /></PrivateRoute>} />
             
               <Route
                 path="/dashboard"
@@ -52,7 +52,18 @@ function App() {
                       <Dashboardhome></Dashboardhome>
                     </PrivateRoute>
                   }
-                ></Route>
+              ></Route>
+              
+
+              <Route
+                exact
+                path="/dashboard/addproduct"
+                element={
+                  <PrivateRoute>
+                    <Dashboardhome></Dashboardhome>
+                  </PrivateRoute>
+                }
+              ></Route>
                 {/* <Route
                   path="/dashboard/payment/:id"
                   element={

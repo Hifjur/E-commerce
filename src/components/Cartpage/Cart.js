@@ -1,9 +1,27 @@
-import React from 'react'
+import React, {useEffect,useState} from 'react'
 import { Avatar, Box, Button, ButtonGroup, Card, CardActions, CardContent, CardMedia, Container, Grid, IconButton, List, ListItem, ListItemAvatar, ListItemText, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete';
 import Divider from '@mui/material/Divider';
+import axios from 'axios'
+import useAuth from '../../Hooks/useAuth';
+import Header from '../Shared/Header';
+import Footer from '../Shared/Footer/Footer';
 function Cart() {
+    const [cartdata, setCartdata] = useState([]);
+    const {user}=useAuth()
+   
+    useEffect(() => {
+        axios.get(`http://localhost:5000/cartproductshow/${user.email}`)
+            .then((res) => setCartdata(res.data))
+            .then((err) => console.log(err))
+    }, []);
+    let total = 0;
+    let i = 0;
+    let delivarycharge = 20;
+    let tax=0
     return (
+        <>
+            <Header/>
         <Container style={{marginTop:"10px"}}>
 
             <Grid container spacing={2}>
@@ -26,20 +44,22 @@ function Cart() {
                                 </TableHead>
                                 <TableBody>
                                     {
-                                        [...Array(5).keys()].map(() => {
+                                        cartdata?.map((cart) => {
+                                            i++
+                                            total = total + parseInt(cart.price);
                                             return (
                                                 <TableRow
 
                                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                                 >
                                                     <TableCell component="th" scope="row">
-                                                        <img src="https://i.postimg.cc/ydzNX7Wj/dress1.jpg" style={{ width: "100px", height: "100px" }} />
+                                                        <img src={cart.src} style={{ width: "100px", height: "100px" }} />
                                                     </TableCell>
-                                                    <TableCell align="center">Dress name</TableCell>
+                                                    <TableCell align="center">{ cart.title}</TableCell>
                                                     <TableCell align="center">
-                                                        <input type="number" min="1" style={{ width: "80px" }} />
+                                                        <input type="number" value="1" min="1" style={{ width: "80px" }} />
                                                     </TableCell>
-                                                    <TableCell align="center">price</TableCell>
+                                                    <TableCell align="center">{ cart.price}</TableCell>
                                                     <TableCell align="center">
                                                         <IconButton color="secondary">
                                                             <DeleteIcon/>
@@ -50,7 +70,7 @@ function Cart() {
                                         })
                                     }
                                         
-                                    
+                                 
                                 </TableBody>
                             </Table>
                         </TableContainer>
@@ -65,7 +85,7 @@ function Cart() {
                             <ListItem
                                 secondaryAction={
                                     <IconButton edge="end" aria-label="delete">
-                                        1
+                                        {i}
                                     </IconButton>
                                 }
                             >
@@ -77,7 +97,7 @@ function Cart() {
                                 <ListItem
                                         secondaryAction={
                                             <IconButton edge="end" aria-label="delete">
-                                                $1000
+                                               ${total}
                                             </IconButton>
                                         }
                                   >
@@ -103,7 +123,8 @@ function Cart() {
                             <ListItem
                                 secondaryAction={
                                     <IconButton edge="end" aria-label="delete">
-                                        $102
+
+                                       ${tax = (total + 20) / 10}
                                     </IconButton>
                                 }
                             >
@@ -115,7 +136,7 @@ function Cart() {
                             <ListItem
                                 secondaryAction={
                                     <IconButton edge="end" aria-label="delete">
-                                        $1122
+                                        ${total+tax+20}
                                     </IconButton>
                                 }
                             >
@@ -139,7 +160,9 @@ function Cart() {
                 </Grid>
                 
             </Grid>
-        </Container>
+            </Container>
+            <Footer/>
+        </>
     )
 }
 
