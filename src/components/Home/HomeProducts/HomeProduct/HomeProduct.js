@@ -3,6 +3,7 @@ import { Container, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useSpring, animated } from "react-spring";
 import './HomeProduct.css'
+import { useNavigate } from 'react-router-dom';
 
 const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.1]
 const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
