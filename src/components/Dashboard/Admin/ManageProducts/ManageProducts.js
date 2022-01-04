@@ -38,7 +38,7 @@ export default function ManageProducts() {
     const [mydata, setMydata] = useState([]);
     let i = 0;
     useEffect(() => {
-        axios.get("http://localhost:5000/products")
+        axios.get("https://still-dusk-95591.herokuapp.com/products")
         .then(res=>setMydata(res.data)).catch(err=>console.log(err))
     }, [mydata])
     
@@ -46,7 +46,7 @@ export default function ManageProducts() {
          const confirmdelete = window.confirm("Are you sure you want to delete this product?");
          if (confirmdelete) {
 
-             axios.delete(`http://localhost:5000/productdelete/${id}`).then(res => {
+             axios.delete(`https://still-dusk-95591.herokuapp.com/productdelete/${id}`).then(res => {
                  
                  const filterdata = mydata.filter(data => data._id !== id);
                  setMydata(filterdata);

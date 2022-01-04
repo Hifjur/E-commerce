@@ -37,7 +37,7 @@ export default function Myorders() {
     const [mydata, setMydata] = useState([]);
     let i = 0;
     useEffect(() => {
-        axios.get("http://localhost:5000/products")
+        axios.get("https://still-dusk-95591.herokuapp.com/products")
             .then(res => setMydata(res.data)).catch(err => console.log(err))
     }, [])
     return (
