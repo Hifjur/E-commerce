@@ -45,8 +45,8 @@ function App() {
                 }
               >
                 <Route
-                  exact
-                  path="/dashboard"
+                  
+                  path="/dashboard/home"
                   element={
                     <PrivateRoute>
                       <Dashboardhome></Dashboardhome>
@@ -56,11 +56,11 @@ function App() {
               
 
               <Route
-                exact
+              
                 path="/dashboard/addproduct"
                 element={
                   <PrivateRoute>
-                    <Dashboardhome></Dashboardhome>
+                    <Addproduct></Addproduct>
                   </PrivateRoute>
                 }
               ></Route>
@@ -99,8 +99,8 @@ function App() {
                 
                 </Route> */}
             </Route>
-            <Route path="/checkout" element={<PrivateRoute><Checkout /></PrivateRoute>} />
-            <Route exact path="*" element={<NotFound />}>
+              <Route path="/checkout" element={<PrivateRoute><Checkout /></PrivateRoute>} />
+              <Route exact path="*" element={<NotFound />}>
             </Route>
           
 

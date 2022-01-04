@@ -45,16 +45,14 @@ function Dashboard(props) {
             display: "block",
             marginY: 3,
             textDecoration: "none",
-            color: "white",
+              color: "white",
+              padding:"10px"
           }}
           to="/dashboard/home"
         >
-          <Button
-            sx={{ backgroundColor: "#55bdca", color: "whtie" }}
-            color="inherit"
-          >
+          
             Home Page
-          </Button>
+          
         </NavLink>
         {!admin && (
           <Box>
@@ -63,32 +61,30 @@ function Dashboard(props) {
                 display: "block",
                 marginY: 3,
                 textDecoration: "none",
-                color: "white",
+                  color: "white",
+                  padding: "10px"
               }}
-              to="/"
+                to="/dashboard/addproduct"
             >
-              <Button
-                sx={{ backgroundColor: "#55bdca", color: "whtie" }}
-                color="inherit"
-              >
-                Explore More
-              </Button>
+                <Button>
+                  Add product
+                </Button>
+                
+              
             </NavLink>
             <NavLink
               style={{
                 display: "block",
                 marginY: 3,
                 textDecoration: "none",
-                color: "white",
+                  color: "white",
+                  padding: "10px"
               }}
               to="/dashboard/addproduct"
             >
-              <Button
-                sx={{ backgroundColor: "#55bdca", color: "whtie" }}
-                color="inherit"
-              >
-                My Orders
-              </Button>
+              
+               Manage product
+              
             </NavLink>
           </Box>
         )}
