@@ -1,8 +1,18 @@
-import React from 'react'
+import React, {useEffect,useState} from 'react'
 import { Avatar, Box, Button, ButtonGroup, Card, CardActions, CardContent, CardMedia, Container, Grid, IconButton, List, ListItem, ListItemAvatar, ListItemText, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete';
 import Divider from '@mui/material/Divider';
+import axios from 'axios'
+import useAuth from '../../Hooks/useAuth';
 function Cart() {
+    const [cartdata, setCartdata] = useState([]);
+    const {user}=useAuth()
+   
+    useEffect(() => {
+        axios.get(`http://localhost:5000/cartproductshow/${user.email}`)
+                .then((res) => setCartdata(res.data))
+                .then((err) => console.log(err))
+    },[])
     return (
         <Container style={{marginTop:"10px"}}>
 
@@ -26,20 +36,20 @@ function Cart() {
                                 </TableHead>
                                 <TableBody>
                                     {
-                                        [...Array(5).keys()].map(() => {
+                                        cartdata?.map((cart) => {
                                             return (
                                                 <TableRow
 
                                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                                 >
                                                     <TableCell component="th" scope="row">
-                                                        <img src="https://i.postimg.cc/ydzNX7Wj/dress1.jpg" style={{ width: "100px", height: "100px" }} />
+                                                        <img src={cart.src} style={{ width: "100px", height: "100px" }} />
                                                     </TableCell>
-                                                    <TableCell align="center">Dress name</TableCell>
+                                                    <TableCell align="center">{ cart.title}</TableCell>
                                                     <TableCell align="center">
                                                         <input type="number" min="1" style={{ width: "80px" }} />
                                                     </TableCell>
-                                                    <TableCell align="center">price</TableCell>
+                                                    <TableCell align="center">{ cart.price}</TableCell>
                                                     <TableCell align="center">
                                                         <IconButton color="secondary">
                                                             <DeleteIcon/>

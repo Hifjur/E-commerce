@@ -81,7 +81,7 @@ function Dashboard(props) {
                 textDecoration: "none",
                 color: "white",
               }}
-              to="/dashboard"
+              to="/dashboard/addproduct"
             >
               <Button
                 sx={{ backgroundColor: "#55bdca", color: "whtie" }}
@@ -290,25 +290,7 @@ function Dashboard(props) {
                 </Routes> */}
 
                
-                    <NavLink
-                        style={{
-                            display: "block",
-                            marginY: 3,
-                            textDecoration: "none",
-                            color: "white",
-                        }}
-                        to="/home"
-                >
                     
-                        <Button
-                            sx={{ backgroundColor: "#55bdca", color: "whtie" }}
-                            color="inherit"
-                        >
-                            Home Page
-                        </Button>
-                    </NavLink>
-                    
-                
             </Box>
         </Box>
     );
