@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import useAuth from "../Hooks/useAuth";
 
 
-const CheckoutForm = ({ bookings }) => {
-  const { rent, customerName, _id } = bookings;
+const CheckoutForm = ({ order }) => {
+  const { rent, customerName, _id } = order;
   const { user } = useAuth();
 
   const stripe = useStripe();
@@ -16,7 +16,7 @@ const CheckoutForm = ({ bookings }) => {
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
-    fetch("https://serene-lake-86965.herokuapp.com/create-payment-intent", {
+    fetch("https://still-dusk-95591.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -75,7 +75,7 @@ const CheckoutForm = ({ bookings }) => {
         created: paymentIntent.created,
         last4: paymentMethod.card.last4,
       };
-      const url = `https://serene-lake-86965.herokuapp.com/bookings/${_id}`;
+      const url = `https://still-dusk-95591.herokuapp.com/addtocart/${_id}`;
       fetch(url, {
         method: "PUT",
         headers: {
