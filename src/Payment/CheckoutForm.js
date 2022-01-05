@@ -3,6 +3,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import swal from "sweetalert";
 import useAuth from "../Hooks/useAuth";
 
 
@@ -33,6 +34,9 @@ const CheckoutForm = (paymentMoney) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setText("Full Payment Option comming soon");
+    axios.delete(`https://still-dusk-95591.herokuapp.com/cartproductdelete/${user.email}`).then(res => {
+      swal("Good job!", "cart product delete successfully", "success");
+    })
     // if (!stripe || !elements) {
     //   return;
     // }
@@ -89,14 +93,8 @@ const CheckoutForm = (paymentMoney) => {
     //     .then((res) => res.json())
     //     .then((data) => console.log(data));
 
-      //   // axios.delete(`https://still-dusk-95591.herokuapp.com/cartproductdelete/${user.email}`).then(res => {
-      //   //   setCartdata([]);
-      //   //   swal("Good job!", "cart product delete successfully", "success");
-
-
-      // }).catch(err => console.log(err))
-    
-  };
+    // }).catch(err => console.log(err))
+};
 
   return (
     <Container>
