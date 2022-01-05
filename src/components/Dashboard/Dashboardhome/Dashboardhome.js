@@ -37,9 +37,9 @@ export default function ManageProducts() {
     const [mydata, setMydata] = useState([]);
     let i = 0;
     useEffect(() => {
-        axios.get("https://still-dusk-95591.herokuapp.com/products")
+        axios.get("http://localhost:5000/allorders")
             .then(res => setMydata(res.data)).catch(err => console.log(err))
-    }, [])
+    }, [mydata])
     return (
 
         <Grid container spacing={2}>
@@ -50,10 +50,11 @@ export default function ManageProducts() {
                             <TableHead>
                                 <TableRow>
                                     <StyledTableCell>serial</StyledTableCell>
-                                    <StyledTableCell align="right">product name</StyledTableCell>
-                                    <StyledTableCell align="right">product price</StyledTableCell>
-                                    <StyledTableCell align="right">product image</StyledTableCell>
-                                    <StyledTableCell align="right">product category</StyledTableCell>
+                                    <StyledTableCell align="right">customer name</StyledTableCell>
+                                    <StyledTableCell align="right">customer country</StyledTableCell>
+                                    <StyledTableCell align="right">customer city</StyledTableCell>
+                                    <StyledTableCell align="right">phonenumber</StyledTableCell>
+                                    <StyledTableCell align="right">payment</StyledTableCell>
                                     <StyledTableCell align="right">Action</StyledTableCell>
                                 </TableRow>
                             </TableHead>
@@ -66,14 +67,13 @@ export default function ManageProducts() {
                                                 <StyledTableCell component="th" scope="row">
                                                     {i}
                                                 </StyledTableCell>
-                                                <StyledTableCell align="right">{data.title}</StyledTableCell>
-                                                <StyledTableCell align="right">{data.price}</StyledTableCell>
+                                                <StyledTableCell align="right">{data.username}</StyledTableCell>
+                                                <StyledTableCell align="right">{data.address}</StyledTableCell>
+                                                <StyledTableCell align="right">{data.city}</StyledTableCell>
+                                                <StyledTableCell align="right">{data.phonenumber}</StyledTableCell>
+                                                <StyledTableCell align="right">${data.fees}</StyledTableCell>
                                                 <StyledTableCell align="right">
-                                                    <img src={data.src} width="80" height="90" />
-                                                </StyledTableCell>
-                                                <StyledTableCell align="right">{data.category}</StyledTableCell>
-                                                <StyledTableCell align="right">
-                                                    <Button variant='contained'>Unpaid</Button>
+                                                    <Button variant='contained'>{ data.status}</Button>
                                                 </StyledTableCell>
                                             </StyledTableRow>
                                         )

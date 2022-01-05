@@ -9,6 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Box, Button, Container, Grid } from '@mui/material';
 import axios from 'axios'
+import useAuth from '../../../Hooks/useAuth';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: theme.palette.common.black,
@@ -35,11 +36,12 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 export default function Myorders() {
 
     const [mydata, setMydata] = useState([]);
+    const {user}=useAuth()
     let i = 0;
     useEffect(() => {
-        axios.get("https://still-dusk-95591.herokuapp.com/products")
+        axios.get(`http://localhost:5000/allorders/${user.email}`)
             .then(res => setMydata(res.data)).catch(err => console.log(err))
-    }, [])
+    }, [mydata])
     return (
 
         <Grid container spacing={2}>
@@ -51,10 +53,11 @@ export default function Myorders() {
                             <TableHead>
                                 <TableRow>
                                     <StyledTableCell>serial</StyledTableCell>
-                                    <StyledTableCell align="right">product name</StyledTableCell>
-                                    <StyledTableCell align="right">product price</StyledTableCell>
-                                    <StyledTableCell align="right">product image</StyledTableCell>
-                                    <StyledTableCell align="right">product category</StyledTableCell>
+                                    <StyledTableCell align="right">customer name</StyledTableCell>
+                                    <StyledTableCell align="right">customer country</StyledTableCell>
+                                    <StyledTableCell align="right">customer city</StyledTableCell>
+                                    <StyledTableCell align="right">phonenumber</StyledTableCell>
+                                    <StyledTableCell align="right">payment</StyledTableCell>
                                     <StyledTableCell align="right">Action</StyledTableCell>
                                 </TableRow>
                             </TableHead>
@@ -67,14 +70,13 @@ export default function Myorders() {
                                                 <StyledTableCell component="th" scope="row">
                                                     {i}
                                                 </StyledTableCell>
-                                                <StyledTableCell align="right">{data.title}</StyledTableCell>
-                                                <StyledTableCell align="right">{data.price}</StyledTableCell>
+                                                <StyledTableCell align="right">{data.username}</StyledTableCell>
+                                                <StyledTableCell align="right">{data.address}</StyledTableCell>
+                                                <StyledTableCell align="right">{data.city}</StyledTableCell>
+                                                <StyledTableCell align="right">{data.phonenumber}</StyledTableCell>
+                                                <StyledTableCell align="right">${data.fees}</StyledTableCell>
                                                 <StyledTableCell align="right">
-                                                    <img src={data.src} width="80" height="90" />
-                                                </StyledTableCell>
-                                                <StyledTableCell align="right">{data.category}</StyledTableCell>
-                                                <StyledTableCell align="right">
-                                                    <Button variant='contained'>Unpaid</Button>
+                                                    <Button variant='contained'>{data.status}</Button>
                                                 </StyledTableCell>
                                             </StyledTableRow>
                                         )

@@ -31,12 +31,12 @@ const CheckoutForm = (paymentMoney) => {
   //     .then((data) => setClientSecret(data.clientSecret));
   // }, [fees]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit =(e) => {
     e.preventDefault();
     setText("Full Payment Option comming soon");
-    axios.delete(`https://still-dusk-95591.herokuapp.com/cartproductdelete/${user.email}`).then(res => {
+    axios.delete(`http://localhost:5000/cartproductdelete/${user.email}`).then(res => {
       swal("Good job!", "cart product delete successfully", "success");
-    })
+    }).catch(err=>console.log(err))
     // if (!stripe || !elements) {
     //   return;
     // }

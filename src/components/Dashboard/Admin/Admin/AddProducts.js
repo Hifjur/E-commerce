@@ -2,15 +2,16 @@ import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Select, TextareaA
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import axios from 'axios'
+import swal from 'sweetalert';
 const AddProducts = () => {
     const [category, setCategory] = useState("");
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch, formState: { errors } ,reset} = useForm();
     const onSubmit = (data) => {
-        
+        console.log(data.src)
         const formData = new FormData();
         formData.append('title',data.title);
-        formData.append('src', data.src[0]);
+        formData.append('src', data.src);
         formData.append("category", data.category)
         formData.append("price", data.price)
         formData.append("description",data.description)
@@ -19,10 +20,14 @@ const AddProducts = () => {
         //     console.log(pair[0] + ', ' + pair[1]);
         // }
         
-            axios.post('http://localhost:5000/addproduct', formData, {
-                headers: { 'Content-Type': 'multipart/form-data' },
-                
-            }).then(res=>console.log(res.data)).catch(err=>console.log(err));
+        axios.post('http://localhost:5000/addproduct', formData)
+            .then(res => {
+                if (res.data.insertedId) {
+                    swal("Good job!", "product add successfully", "success"); 
+                }
+             
+            }).catch(err => console.log(err));
+        reset();
         
     };
 
@@ -72,7 +77,10 @@ const AddProducts = () => {
                             {...register("description", { required: true })}
                             style={{ width: "100%", height: "200px", marginTop: "20px" }}
                         />
-                        <input type="file" {...register("src", { required: true })} />
+                        <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
+                            <TextField id="outlined-basic" {...register("src", { required: true })} label="Image link" variant="outlined" />
+                        </FormControl>
+                        
                         <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
                             <Button type="submit" style={{ width: "100%" }} variant='contained'>Add product</Button>
                         </FormControl>
