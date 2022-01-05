@@ -18,7 +18,7 @@ const Product = ({ product }) => {
         }
     }))
 
-    const { title, src, price, description, category } = product;
+    const { _id, title, src, price, description, category } = product;
     
     
 
@@ -49,7 +49,7 @@ const Product = ({ product }) => {
                                     </h5>
                                 </div>
                                 <div className="col-md-6 col-sm-12 col-lg-6 ">
-                                    <Link to="/cartpage">
+                                    <Link to={`/singlepage/${_id}`}>
                                         <button className="app_button mt-3">Details</button>
                                     </Link>
 
