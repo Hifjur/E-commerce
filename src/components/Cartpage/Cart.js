@@ -212,7 +212,7 @@ function Cart() {
                                     </FormControl>
 
                                     <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
-                                        <Link to={`/payment/${total?.total}`}><Button style={{ width: "100%" }} variant='contained'>order submit</Button></Link>
+                                        <Button style={{ width: "100%" }} variant='contained'>order submit</Button>
                                     </FormControl>
                                 </form>
                             </Box>:""
