@@ -20,6 +20,8 @@ import AdminRoute from "./AdminRoute/AdminRoute";
 import AddProducts from "./components/Dashboard/Admin/Admin/AddProducts";
 import MakeAdmin from "./components/Dashboard/Admin/MakeAdmin/MakeAdmin";
 import ManageProducts from "./components/Dashboard/Admin/ManageProducts/ManageProducts";
+import Dashboardbanner from "./components/Dashboard/Dashboardbanner/Dashboardbanner";
+import Myorders from "./components/Dashboard/Myoders/Myorders";
 
 
 function App() {
@@ -37,7 +39,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/singlepage/:id" element={<PrivateRoute><Singlepage /></PrivateRoute>} />
             <Route path="/cartpage" element={<PrivateRoute><Cart /></PrivateRoute>} />
-            <Route path="/payment" element={<PrivateRoute><Payment /></PrivateRoute>} />
+            <Route path="/payment/:id" element={<PrivateRoute><Payment /></PrivateRoute>} />
               <Route
                 path="/dashboard"
                 element={
@@ -51,18 +53,38 @@ function App() {
                   path="/dashboard"
                   element={
                     <PrivateRoute>
-                      <Dashboardhome></Dashboardhome>
+                      <Dashboardbanner/>
                     </PrivateRoute>
                   }
+              ></Route>
+              <Route
+                exact
+                path="/dashboard/myorders"
+                element={
+                  <PrivateRoute>
+                    <Myorders/>
+                  </PrivateRoute>
+                }
+              ></Route>
+             
+
+              <Route
+                exact
+                path="/dashboard/allorderproduct"
+                element={
+                  <AdminRoute>
+                    <Dashboardhome></Dashboardhome>
+                   </AdminRoute>
+                }
               ></Route>
               
 
               <Route
                 path="/dashboard/addproduct"
                 element={
-                  <PrivateRoute>
+                  <AdminRoute>
                     <AddProducts/>
-                  </PrivateRoute>
+                  </AdminRoute>
                 }
               ></Route>
               <Route
@@ -84,7 +106,7 @@ function App() {
                 
                 </Route>
             </Route>
-            <Route path="/checkout" element={<PrivateRoute><Checkout /></PrivateRoute>} />
+            <Route path="/checkout/:total" element={<PrivateRoute><Checkout /></PrivateRoute>} />
             <Route exact path="*" element={<NotFound />}>
             </Route>
           

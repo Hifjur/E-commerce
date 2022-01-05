@@ -3,49 +3,52 @@ import { useParams } from "react-router";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
+import { Container } from "@mui/material";
+import useAuth from "../Hooks/useAuth";
+import Header from "../components/Shared/Header";
 
 const stripePromise = loadStripe(
   "pk_test_51Jx5DqJ8BbjJfr4C3I3MZcKJ6w8ahM4uSsZBCJgOivywGZqcDrayV4LsfZoGvy9womiNLKFhj0vN9lYyfqYecNu300vgw93X9a"
 );
 
 const Payment = () => {
-  const { id } = useParams();
-  const [bookings, setBookings] = useState({});
+  const {id} = useParams();
+  const {user} = useAuth();
+  const [data, setData] = useState();
   useEffect(() => {
-    fetch(`http://localhost:5000/orders/${id}`)
+    fetch(`https://still-dusk-95591.herokuapp.com/saveoder/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setBookings(data);
+        setData(data);
       });
   }, [id]);
+  
   return (
-    <div
+    <>
+    <Header/>
+    <Container
       style={{
+        marginTop:'50px',
         paddingTop: "120px",
         paddingBottom: "120px",
-        backgroundColor: "#1D2440",
+        backgroundColor: "#0A479F",
         color: "white",
         borderRadius: 20,
       }}
     >
-      <img
-        style={{ border: "6px solid white", borderRadius: 20 }}
-        src={bookings.img}
-        alt=""
-      />
-      <h1>{bookings.hotelName} </h1>
-      <h2>Rent ${bookings.rent}</h2>
+      <h2 style={{paddingBottom:'40px', justifyContet:"center", textAlign :'center'}}>Hello {user.displayName}</h2>
+      <h2 style={{paddingBottom:'40px', justifyContet:"center", textAlign :'center'}}>Pay ${data?.fees}</h2>
 
-      {bookings.rent && (
+      {data && (
         <Elements stripe={stripePromise}>
-          <CheckoutForm bookings={bookings}></CheckoutForm>
+          <CheckoutForm paymentMoney={data}></CheckoutForm>
         </Elements>
       )}
       <p style={{ color: "gray", fontSize: 20 }}>
         Test Card Number for Demo only 4242424242424242
       </p>
-    </div>
+    </Container></>
   );
 };
 

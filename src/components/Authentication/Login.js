@@ -89,7 +89,7 @@ const Login = () => {
               sx={{ backgroundColor: "orange" }}
               variant="contained"
             >
-              <Google sx={{ padding: 2 }}></Google>
+             Google
             </Button>
             <NavLink
               style={{
