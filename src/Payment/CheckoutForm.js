@@ -96,7 +96,7 @@ const CheckoutForm = ({ total }) => {
             style: {
               base: {
                 fontSize: "16px",
-                color: "#424770",
+                color: "white",
                 "::placeholder": {
                   color: "white",
                 },
