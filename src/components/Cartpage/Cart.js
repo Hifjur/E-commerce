@@ -16,7 +16,6 @@ function Cart() {
     useEffect(() => {
 
         axios.get(`https://still-dusk-95591.herokuapp.com/cartproductshow/${user.email}`)
-
             .then((res) => setCartdata(res.data))
             .then((err) => console.log(err))
     }, [cartdata]);
