@@ -20,6 +20,8 @@ import AdminRoute from "./AdminRoute/AdminRoute";
 import AddProducts from "./components/Dashboard/Admin/Admin/AddProducts";
 import MakeAdmin from "./components/Dashboard/Admin/MakeAdmin/MakeAdmin";
 import ManageProducts from "./components/Dashboard/Admin/ManageProducts/ManageProducts";
+import Dashboardbanner from "./components/Dashboard/Dashboardbanner/Dashboardbanner";
+import Myorders from "./components/Dashboard/Myoders/Myorders";
 
 
 function App() {
@@ -51,18 +53,38 @@ function App() {
                   path="/dashboard"
                   element={
                     <PrivateRoute>
-                      <Dashboardhome></Dashboardhome>
+                      <Dashboardbanner/>
                     </PrivateRoute>
                   }
+              ></Route>
+              <Route
+                exact
+                path="/dashboard/myorders"
+                element={
+                  <PrivateRoute>
+                    <Myorders/>
+                  </PrivateRoute>
+                }
+              ></Route>
+             
+
+              <Route
+                exact
+                path="/dashboard/allorderproduct"
+                element={
+                  <AdminRoute>
+                    <Dashboardhome></Dashboardhome>
+                   </AdminRoute>
+                }
               ></Route>
               
 
               <Route
                 path="/dashboard/addproduct"
                 element={
-                  <PrivateRoute>
+                  <AdminRoute>
                     <AddProducts/>
-                  </PrivateRoute>
+                  </AdminRoute>
                 }
               ></Route>
               <Route

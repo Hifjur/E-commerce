@@ -1,5 +1,5 @@
 import React, {useEffect,useState} from 'react'
-import { Avatar, Box, Button, ButtonGroup, Card, CardActions, CardContent, CardMedia, Container, Grid, IconButton, List, ListItem, ListItemAvatar, ListItemText, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
+import { Avatar, Box, Button, ButtonGroup, Card, CardActions, CardContent, CardMedia, Container, FormControl, Grid, IconButton, List, ListItem, ListItemAvatar, ListItemText, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete';
 import Divider from '@mui/material/Divider';
 import axios from 'axios'
@@ -7,15 +7,40 @@ import useAuth from '../../Hooks/useAuth';
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer/Footer';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 function Cart() {
     const [cartdata, setCartdata] = useState([]);
+    const [showshipping, setShowshipping] = useState(false);
     const {user}=useAuth()
 
     useEffect(() => {
+
         axios.get(`https://still-dusk-95591.herokuapp.com/cartproductshow/${user.email}`)
             .then((res) => setCartdata(res.data))
             .then((err) => console.log(err))
-    }, []);
+    }, [cartdata]);
+
+    const showshippingbtn = () => {
+        setShowshipping(true)
+    }
+
+    const hendledelete = (id) => {
+        const confirmdelete = window.confirm("Are you sure you want to delete this product?");
+        if (confirmdelete) {
+
+            axios.delete(`https://still-dusk-95591.herokuapp.com/cartproductdelete/${id}`).then(res => {
+
+                const filterdata = cartdata.filter(data => data._id !== id);
+                setCartdata(filterdata);
+                swal("Good job!", "cart product delete successfully", "success");
+
+
+            }).catch(err => console.log(err))
+        }
+    }
+
+
+
     let total = 0;
     let i = 0;
     let delivarycharge = 20;
@@ -63,7 +88,7 @@ function Cart() {
                                                     <TableCell align="center">{ cart.price}</TableCell>
                                                     <TableCell align="center">
                                                         <IconButton color="secondary">
-                                                            <DeleteIcon/>
+                                                            <DeleteIcon onClick={() =>hendledelete(cart._id)}/>
                                                         </IconButton>
                                                     </TableCell>
                                                 </TableRow>
@@ -148,17 +173,50 @@ function Cart() {
                             </ListItem>
                             <Divider />
                            
-                            <Link to={`/checkout/${total}`}>
-                            <Button style={{width:"100%",padding:"15px"}}>
+                          
+                            <Button style={{width:"100%",padding:"15px"}} onClick={showshippingbtn}>
                                 Proceed to checkout   
-                            </Button></Link>
+                            </Button>
                                 
                                 
                            
                           
                          </List>
                         
-                    </Box>
+                        </Box>
+                        <br />
+                        {
+                            showshipping===true? <Box>
+                                <Typography variant='h4' style={{ backgroundColor: "#bcbbff", padding: "8px 15px", borderRadius: "5px" }}>
+
+                                    Shipping information
+
+                                </Typography>
+                                <form>
+
+                                    <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
+                                        <TextField id="outlined-basic" name="username" label="User name" variant="outlined" />
+                                    </FormControl>
+                                    <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
+                                        <TextField id="outlined-basic" name="address" label="Address" variant="outlined" />
+                                    </FormControl>
+                                    <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
+                                        <TextField id="outlined-basic" name="city" label="City name" variant="outlined" />
+                                    </FormControl>
+                                    <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
+                                        <TextField id="outlined-basic" name="phonenumber" label="Phonenumber" variant="outlined" />
+                                    </FormControl>
+                                    <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
+                                        <TextField id="outlined-basic" name="postalcode" label="Postalcode" variant="outlined" />
+                                    </FormControl>
+
+                                    <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
+                                        <Button style={{ width: "100%" }} variant='contained'>order submit</Button>
+                                    </FormControl>
+                                </form>
+                            </Box>:""
+                        }
+                        
                 </Grid>
                 
             </Grid>
