@@ -6,12 +6,18 @@ import axios from 'axios'
 import useAuth from '../../Hooks/useAuth';
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer/Footer';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
+import { useForm } from "react-hook-form";
+
 function Cart() {
+
     const [cartdata, setCartdata] = useState([]);
     const [showshipping, setShowshipping] = useState(false);
     const {user}=useAuth()
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const [fees, setFees] = useState(0)
+    const history = useNavigate();
 
     useEffect(() => {
 
@@ -20,14 +26,15 @@ function Cart() {
             .then((err) => console.log(err))
     }, [cartdata]);
 
-    const showshippingbtn = () => {
+    const showshippingbtn = (fees) => {
+        setFees(fees);
         setShowshipping(true)
     }
 
     const hendledelete = (id) => {
         const confirmdelete = window.confirm("Are you sure you want to delete this product?");
         if (confirmdelete) {
-
+            setShowshipping(false)
             axios.delete(`https://still-dusk-95591.herokuapp.com/cartproductdelete/${id}`).then(res => {
 
                 const filterdata = cartdata.filter(data => data._id !== id);
@@ -45,6 +52,27 @@ function Cart() {
     let i = 0;
     let delivarycharge = 20;
     let tax=0
+
+    const onSubmit = data => {
+        const paymentInfo={...data, status:"unpaid", fees , email: user.email}
+        console.log(paymentInfo);
+
+    fetch("https://still-dusk-95591.herokuapp.com/saveoder", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(paymentInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          history(`/payment/${data.insertedId}`);
+        }
+      });
+
+
+};
     return (
         <>
             <Header/>
@@ -174,7 +202,7 @@ function Cart() {
                             <Divider />
                            
                           
-                            <Button style={{width:"100%",padding:"15px"}} onClick={showshippingbtn}>
+                            <Button style={{width:"100%",padding:"15px"}} onClick={()=>showshippingbtn(total+tax+20)}>
                                 Proceed to checkout   
                             </Button>
                                 
@@ -192,26 +220,29 @@ function Cart() {
                                     Shipping information
 
                                 </Typography>
-                                <form>
-
+                                <form onSubmit={handleSubmit(onSubmit)}>
                                     <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
-                                        <TextField id="outlined-basic" name="username" label="User name" variant="outlined" />
+                                        <TextField id="outlined-basic" {...register("username", { required: true })} label="User name" variant="outlined" />
                                     </FormControl>
+                                    {errors.username && <span>This field is required</span>}
                                     <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
-                                        <TextField id="outlined-basic" name="address" label="Address" variant="outlined" />
+                                        <TextField id="outlined-basic" {...register("address", { required: true })} label="Address" variant="outlined" />
                                     </FormControl>
+                                    {errors.adderss && <span>This field is required</span>}
                                     <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
-                                        <TextField id="outlined-basic" name="city" label="City name" variant="outlined" />
+                                        <TextField id="outlined-basic" {...register("city", { required: true })} label="City name" variant="outlined" />
                                     </FormControl>
+                                    {errors.city && <span>This field is required</span>}
                                     <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
-                                        <TextField id="outlined-basic" name="phonenumber" label="Phonenumber" variant="outlined" />
+                                        <TextField id="outlined-basic" {...register("phonenumber", { required: true })} label="Phonenumber" variant="outlined" />
                                     </FormControl>
+                                    {errors.phonenumber && <span>This field is required</span>}
                                     <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
-                                        <TextField id="outlined-basic" name="postalcode" label="Postalcode" variant="outlined" />
+                                        <TextField id="outlined-basic" {...register("postalcode", { required: true })} label="Postalcode" variant="outlined" />
                                     </FormControl>
-
+                                    {errors.postalcode && <span>This field is required</span>}
                                     <FormControl fullWidth style={{ margin: "10px 0px" }} variant="standard">
-                                        <Button style={{ width: "100%" }} variant='contained'>order submit</Button>
+                                        <Button type="submit" style={{ width: "100%" }} variant='contained'>order submit</Button>
                                     </FormControl>
                                 </form>
                             </Box>:""
