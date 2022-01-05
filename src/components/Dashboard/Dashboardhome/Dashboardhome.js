@@ -37,7 +37,7 @@ export default function ManageProducts() {
     const [mydata, setMydata] = useState([]);
     let i = 0;
     useEffect(() => {
-        axios.get("http://localhost:5000/allorders")
+        axios.get("https://still-dusk-95591.herokuapp.com/allorders")
             .then(res => setMydata(res.data)).catch(err => console.log(err))
     }, [mydata])
     return (
@@ -55,7 +55,7 @@ export default function ManageProducts() {
                                     <StyledTableCell align="right">customer city</StyledTableCell>
                                     <StyledTableCell align="right">phonenumber</StyledTableCell>
                                     <StyledTableCell align="right">payment</StyledTableCell>
-                                    <StyledTableCell align="right">Action</StyledTableCell>
+                                    
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -72,9 +72,7 @@ export default function ManageProducts() {
                                                 <StyledTableCell align="right">{data.city}</StyledTableCell>
                                                 <StyledTableCell align="right">{data.phonenumber}</StyledTableCell>
                                                 <StyledTableCell align="right">${data.fees}</StyledTableCell>
-                                                <StyledTableCell align="right">
-                                                    <Button variant='contained'>{ data.status}</Button>
-                                                </StyledTableCell>
+                                               
                                             </StyledTableRow>
                                         )
                                     })

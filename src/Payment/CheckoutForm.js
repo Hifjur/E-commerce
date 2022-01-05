@@ -34,7 +34,7 @@ const CheckoutForm = (paymentMoney) => {
   const handleSubmit =(e) => {
     e.preventDefault();
     setText("Full Payment Option comming soon");
-    axios.delete(`http://localhost:5000/cartproductdelete/${user.email}`).then(res => {
+    axios.delete(`https://still-dusk-95591.herokuapp.com/cartproductdelete/${user.email}`).then(res => {
       swal("Good job!", "cart product delete successfully", "success");
     }).catch(err=>console.log(err))
     // if (!stripe || !elements) {
@@ -124,7 +124,7 @@ const CheckoutForm = (paymentMoney) => {
             sx={{ backgroundColor: "#F27D42", m: 1 }}
             variant="contained"
           >
-            {text}
+            {text?text:"pay"}
           </Button>
         )}
       </form>

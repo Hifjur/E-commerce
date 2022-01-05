@@ -20,7 +20,7 @@ const AddProducts = () => {
         //     console.log(pair[0] + ', ' + pair[1]);
         // }
         
-        axios.post('http://localhost:5000/addproduct', formData)
+        axios.post('https://still-dusk-95591.herokuapp.com/addproduct', formData)
             .then(res => {
                 if (res.data.insertedId) {
                     swal("Good job!", "product add successfully", "success"); 

@@ -39,7 +39,7 @@ export default function Myorders() {
     const {user}=useAuth()
     let i = 0;
     useEffect(() => {
-        axios.get(`http://localhost:5000/allorders/${user.email}`)
+        axios.get(`https://still-dusk-95591.herokuapp.com/allorders/${user.email}`)
             .then(res => setMydata(res.data)).catch(err => console.log(err))
     }, [mydata])
     return (
