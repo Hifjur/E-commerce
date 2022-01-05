@@ -12,9 +12,18 @@ const stripePromise = loadStripe(
 );
 
 const Payment = () => {
-  const {total} = useParams();
+  const {id} = useParams();
   const {user} = useAuth();
-  const totali=1
+  const [data, setData] = useState();
+  useEffect(() => {
+    fetch(`https://still-dusk-95591.herokuapp.com/saveoder/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setData(data);
+      });
+  }, [id]);
+  
   return (
     <>
     <Header/>
@@ -29,11 +38,11 @@ const Payment = () => {
       }}
     >
       <h2 style={{paddingBottom:'40px', justifyContet:"center", textAlign :'center'}}>Hello {user.displayName}</h2>
-      <h2 style={{paddingBottom:'40px', justifyContet:"center", textAlign :'center'}}>Pay ${total}</h2>
+      <h2 style={{paddingBottom:'40px', justifyContet:"center", textAlign :'center'}}>Pay ${data?.fees}</h2>
 
-      {totali && (
+      {data && (
         <Elements stripe={stripePromise}>
-          <CheckoutForm bookings={total}></CheckoutForm>
+          <CheckoutForm paymentMoney={data}></CheckoutForm>
         </Elements>
       )}
       <p style={{ color: "gray", fontSize: 20 }}>

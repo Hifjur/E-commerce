@@ -68,13 +68,7 @@ function Cart() {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-            axios.delete(`https://still-dusk-95591.herokuapp.com/cartproductdelete/${user.email}`).then(res => {
-                setCartdata([]);
-                swal("Good job!", "cart product delete successfully", "success");
-
-
-            }).catch(err => console.log(err))
-          history("/payment");
+          history(`/payment/${data.insertedId}`);
         }
       });
 
