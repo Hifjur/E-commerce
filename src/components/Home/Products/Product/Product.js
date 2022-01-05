@@ -60,9 +60,7 @@ const Product = ({ product }) => {
                     </div>
 
                 </animated.div>
-
-
-            </div>
+       </div>
        </Container>
       
        
